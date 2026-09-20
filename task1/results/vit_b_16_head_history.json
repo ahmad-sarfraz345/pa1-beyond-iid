@@ -1,0 +1,50 @@
+{
+  "best_epoch": 6,
+  "best_validation_accuracy": 0.981,
+  "history": [
+    {
+      "epoch": 1,
+      "validation_accuracy": 0.976
+    },
+    {
+      "epoch": 2,
+      "validation_accuracy": 0.975
+    },
+    {
+      "epoch": 3,
+      "validation_accuracy": 0.978
+    },
+    {
+      "epoch": 4,
+      "validation_accuracy": 0.978
+    },
+    {
+      "epoch": 5,
+      "validation_accuracy": 0.98
+    },
+    {
+      "epoch": 6,
+      "validation_accuracy": 0.981
+    },
+    {
+      "epoch": 7,
+      "validation_accuracy": 0.98
+    },
+    {
+      "epoch": 8,
+      "validation_accuracy": 0.979
+    },
+    {
+      "epoch": 9,
+      "validation_accuracy": 0.979
+    },
+    {
+      "epoch": 10,
+      "validation_accuracy": 0.98
+    },
+    {
+      "epoch": 11,
+      "validation_accuracy": 0.979
+    }
+  ]
+}

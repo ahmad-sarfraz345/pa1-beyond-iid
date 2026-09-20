@@ -1,0 +1,1127 @@
+{
+  "config": {
+    "seed": 6304,
+    "dataset": "STL10",
+    "test_per_class": 50,
+    "image_size": 224,
+    "batch_size": 32,
+    "head_max_epochs": 50,
+    "head_patience": 5,
+    "head_lr": 0.001,
+    "head_weight_decay": 0.0001,
+    "hue_degrees": 45,
+    "cue_pairs": [
+      [
+        "cat",
+        "dog"
+      ],
+      [
+        "deer",
+        "horse"
+      ],
+      [
+        "car",
+        "truck"
+      ],
+      [
+        "airplane",
+        "bird"
+      ],
+      [
+        "airplane",
+        "ship"
+      ]
+    ],
+    "cue_candidates_per_direction": 40,
+    "adain_alpha": 0.8,
+    "cue_rejection_rule": "Reject if the content object's outline is no longer recognizable, the image has severe artifacts, or the style class has no recognizable visual texture. Apply without viewing model predictions.",
+    "representation_per_class": 20,
+    "tsne_perplexity": 30
+  },
+  "test_ids": [
+    3,
+    29,
+    35,
+    42,
+    49,
+    81,
+    95,
+    97,
+    116,
+    131,
+    151,
+    171,
+    176,
+    191,
+    194,
+    198,
+    239,
+    261,
+    269,
+    276,
+    303,
+    304,
+    317,
+    319,
+    323,
+    365,
+    370,
+    372,
+    378,
+    391,
+    409,
+    419,
+    449,
+    470,
+    483,
+    484,
+    506,
+    545,
+    562,
+    568,
+    603,
+    632,
+    645,
+    667,
+    672,
+    677,
+    685,
+    691,
+    706,
+    714,
+    716,
+    738,
+    739,
+    766,
+    791,
+    805,
+    825,
+    852,
+    855,
+    873,
+    890,
+    920,
+    929,
+    962,
+    964,
+    977,
+    979,
+    981,
+    1022,
+    1032,
+    1048,
+    1090,
+    1095,
+    1109,
+    1111,
+    1115,
+    1124,
+    1129,
+    1175,
+    1202,
+    1204,
+    1211,
+    1220,
+    1230,
+    1247,
+    1263,
+    1266,
+    1287,
+    1296,
+    1370,
+    1389,
+    1401,
+    1403,
+    1411,
+    1429,
+    1430,
+    1431,
+    1436,
+    1440,
+    1468,
+    1473,
+    1515,
+    1520,
+    1531,
+    1534,
+    1552,
+    1553,
+    1563,
+    1568,
+    1579,
+    1586,
+    1596,
+    1626,
+    1640,
+    1644,
+    1648,
+    1654,
+    1667,
+    1703,
+    1711,
+    1771,
+    1783,
+    1814,
+    1833,
+    1836,
+    1839,
+    1852,
+    1871,
+    1877,
+    1884,
+    1927,
+    1954,
+    1956,
+    1960,
+    1977,
+    1986,
+    1993,
+    2003,
+    2011,
+    2024,
+    2028,
+    2062,
+    2070,
+    2082,
+    2095,
+    2109,
+    2114,
+    2116,
+    2157,
+    2167,
+    2178,
+    2191,
+    2230,
+    2242,
+    2265,
+    2268,
+    2291,
+    2334,
+    2340,
+    2342,
+    2351,
+    2391,
+    2392,
+    2399,
+    2414,
+    2427,
+    2458,
+    2501,
+    2502,
+    2536,
+    2539,
+    2610,
+    2623,
+    2655,
+    2668,
+    2676,
+    2687,
+    2690,
+    2704,
+    2745,
+    2746,
+    2750,
+    2754,
+    2757,
+    2766,
+    2807,
+    2844,
+    2854,
+    2861,
+    2888,
+    2898,
+    2950,
+    2958,
+    3015,
+    3024,
+    3025,
+    3034,
+    3067,
+    3078,
+    3079,
+    3083,
+    3122,
+    3153,
+    3157,
+    3163,
+    3179,
+    3191,
+    3276,
+    3287,
+    3288,
+    3292,
+    3318,
+    3347,
+    3353,
+    3362,
+    3365,
+    3375,
+    3383,
+    3404,
+    3412,
+    3413,
+    3418,
+    3437,
+    3446,
+    3454,
+    3455,
+    3458,
+    3467,
+    3491,
+    3494,
+    3512,
+    3515,
+    3542,
+    3550,
+    3562,
+    3755,
+    3763,
+    3777,
+    3778,
+    3779,
+    3844,
+    3851,
+    3852,
+    3863,
+    3867,
+    3876,
+    3889,
+    3891,
+    3893,
+    3905,
+    3914,
+    3937,
+    3942,
+    3948,
+    3962,
+    3965,
+    3994,
+    3996,
+    4011,
+    4023,
+    4054,
+    4065,
+    4069,
+    4093,
+    4094,
+    4106,
+    4130,
+    4168,
+    4170,
+    4172,
+    4177,
+    4215,
+    4229,
+    4236,
+    4242,
+    4254,
+    4290,
+    4298,
+    4308,
+    4311,
+    4323,
+    4330,
+    4341,
+    4355,
+    4399,
+    4403,
+    4411,
+    4449,
+    4463,
+    4531,
+    4539,
+    4547,
+    4552,
+    4570,
+    4590,
+    4609,
+    4615,
+    4617,
+    4620,
+    4629,
+    4640,
+    4642,
+    4661,
+    4662,
+    4675,
+    4676,
+    4704,
+    4723,
+    4731,
+    4735,
+    4740,
+    4746,
+    4748,
+    4754,
+    4785,
+    4791,
+    4819,
+    4821,
+    4827,
+    4850,
+    4881,
+    4893,
+    4908,
+    4913,
+    4921,
+    4953,
+    4966,
+    4990,
+    5000,
+    5030,
+    5062,
+    5077,
+    5082,
+    5092,
+    5101,
+    5117,
+    5123,
+    5135,
+    5183,
+    5213,
+    5218,
+    5220,
+    5237,
+    5256,
+    5284,
+    5301,
+    5318,
+    5332,
+    5333,
+    5360,
+    5381,
+    5382,
+    5395,
+    5402,
+    5408,
+    5436,
+    5447,
+    5450,
+    5451,
+    5452,
+    5467,
+    5478,
+    5488,
+    5496,
+    5508,
+    5512,
+    5525,
+    5528,
+    5556,
+    5560,
+    5572,
+    5580,
+    5590,
+    5623,
+    5677,
+    5694,
+    5701,
+    5705,
+    5719,
+    5729,
+    5756,
+    5788,
+    5789,
+    5824,
+    5848,
+    5851,
+    5857,
+    5858,
+    5912,
+    5915,
+    5918,
+    5924,
+    5977,
+    5981,
+    5999,
+    6028,
+    6033,
+    6076,
+    6084,
+    6097,
+    6169,
+    6190,
+    6224,
+    6244,
+    6264,
+    6271,
+    6288,
+    6332,
+    6349,
+    6354,
+    6358,
+    6381,
+    6414,
+    6426,
+    6434,
+    6437,
+    6455,
+    6490,
+    6503,
+    6508,
+    6528,
+    6594,
+    6609,
+    6616,
+    6650,
+    6689,
+    6692,
+    6713,
+    6716,
+    6726,
+    6733,
+    6772,
+    6805,
+    6836,
+    6844,
+    6922,
+    6931,
+    6938,
+    6952,
+    6954,
+    6986,
+    6989,
+    7009,
+    7029,
+    7033,
+    7041,
+    7047,
+    7081,
+    7084,
+    7108,
+    7130,
+    7138,
+    7150,
+    7202,
+    7262,
+    7266,
+    7270,
+    7309,
+    7320,
+    7338,
+    7372,
+    7373,
+    7380,
+    7390,
+    7413,
+    7416,
+    7425,
+    7446,
+    7460,
+    7465,
+    7474,
+    7475,
+    7476,
+    7544,
+    7555,
+    7600,
+    7610,
+    7634,
+    7692,
+    7706,
+    7726,
+    7744,
+    7752,
+    7776,
+    7779,
+    7781,
+    7793,
+    7797,
+    7810,
+    7818,
+    7835,
+    7864,
+    7875,
+    7938,
+    7940,
+    7944,
+    7955,
+    7995,
+    7996,
+    7999
+  ],
+  "models": {
+    "resnet50": {
+      "clean": {
+        "accuracy": 0.978,
+        "macro_f1": 0.9780357293461304,
+        "mean_max_confidence": 0.977180540561676
+      },
+      "interventions": {
+        "grayscale": {
+          "accuracy": 0.956,
+          "macro_f1": 0.9559475058779252,
+          "mean_max_confidence": 0.9663630723953247,
+          "accuracy_delta": -0.02200000000000002,
+          "consistency": 0.96
+        },
+        "hue": {
+          "accuracy": 0.952,
+          "macro_f1": 0.9519668132007701,
+          "mean_max_confidence": 0.9662749171257019,
+          "accuracy_delta": -0.026000000000000023,
+          "consistency": 0.96
+        },
+        "patch": {
+          "accuracy": 0.916,
+          "macro_f1": 0.916772153418167,
+          "mean_max_confidence": 0.93218994140625,
+          "accuracy_delta": -0.061999999999999944,
+          "consistency": 0.928
+        }
+      },
+      "translation": {
+        "0": {
+          "accuracy": 0.978,
+          "consistency": 1.0
+        },
+        "8": {
+          "accuracy": 0.976,
+          "consistency": 0.9964999999999999
+        },
+        "16": {
+          "accuracy": 0.9724999999999999,
+          "consistency": 0.9924999999999999
+        },
+        "32": {
+          "accuracy": 0.9675,
+          "consistency": 0.986
+        }
+      },
+      "cue_conflicts": {
+        "shape": 144,
+        "texture": 39,
+        "other": 17,
+        "shape_bias_pct": 78.68852459016394,
+        "coverage_pct": 91.5,
+        "by_pair_direction": {
+          "0_0": {
+            "shape": 14,
+            "texture": 0,
+            "other": 6,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 70.0
+          },
+          "0_1": {
+            "shape": 14,
+            "texture": 3,
+            "other": 3,
+            "shape_bias_pct": 82.3529411764706,
+            "coverage_pct": 85.0
+          },
+          "1_0": {
+            "shape": 18,
+            "texture": 2,
+            "other": 0,
+            "shape_bias_pct": 90.0,
+            "coverage_pct": 100.0
+          },
+          "1_1": {
+            "shape": 15,
+            "texture": 5,
+            "other": 0,
+            "shape_bias_pct": 75.0,
+            "coverage_pct": 100.0
+          },
+          "2_0": {
+            "shape": 17,
+            "texture": 2,
+            "other": 1,
+            "shape_bias_pct": 89.47368421052632,
+            "coverage_pct": 95.0
+          },
+          "2_1": {
+            "shape": 17,
+            "texture": 3,
+            "other": 0,
+            "shape_bias_pct": 85.0,
+            "coverage_pct": 100.0
+          },
+          "3_0": {
+            "shape": 0,
+            "texture": 18,
+            "other": 2,
+            "shape_bias_pct": 0.0,
+            "coverage_pct": 90.0
+          },
+          "3_1": {
+            "shape": 17,
+            "texture": 0,
+            "other": 3,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 85.0
+          },
+          "4_0": {
+            "shape": 13,
+            "texture": 5,
+            "other": 2,
+            "shape_bias_pct": 72.22222222222223,
+            "coverage_pct": 90.0
+          },
+          "4_1": {
+            "shape": 19,
+            "texture": 1,
+            "other": 0,
+            "shape_bias_pct": 95.0,
+            "coverage_pct": 100.0
+          }
+        }
+      },
+      "representation_stability": {
+        "grayscale": 0.7884371280670166,
+        "patch": 0.718032717704773,
+        "cue": 0.4872225224971771,
+        "translation_8": 0.9685215502977371,
+        "translation_16": 0.9524947553873062,
+        "translation_32": 0.9327363222837448
+      }
+    },
+    "vit_b_16": {
+      "clean": {
+        "accuracy": 0.974,
+        "macro_f1": 0.9738959646264747,
+        "mean_max_confidence": 0.9675630927085876
+      },
+      "interventions": {
+        "grayscale": {
+          "accuracy": 0.956,
+          "macro_f1": 0.9558523313878368,
+          "mean_max_confidence": 0.9627154469490051,
+          "accuracy_delta": -0.018000000000000016,
+          "consistency": 0.956
+        },
+        "hue": {
+          "accuracy": 0.964,
+          "macro_f1": 0.9638874748800855,
+          "mean_max_confidence": 0.9552812576293945,
+          "accuracy_delta": -0.010000000000000009,
+          "consistency": 0.97
+        },
+        "patch": {
+          "accuracy": 0.9,
+          "macro_f1": 0.9003953544984438,
+          "mean_max_confidence": 0.8999797701835632,
+          "accuracy_delta": -0.07399999999999995,
+          "consistency": 0.912
+        }
+      },
+      "translation": {
+        "0": {
+          "accuracy": 0.974,
+          "consistency": 1.0
+        },
+        "8": {
+          "accuracy": 0.9775,
+          "consistency": 0.9855
+        },
+        "16": {
+          "accuracy": 0.974,
+          "consistency": 0.989
+        },
+        "32": {
+          "accuracy": 0.9645,
+          "consistency": 0.9755
+        }
+      },
+      "cue_conflicts": {
+        "shape": 171,
+        "texture": 16,
+        "other": 13,
+        "shape_bias_pct": 91.44385026737967,
+        "coverage_pct": 93.5,
+        "by_pair_direction": {
+          "0_0": {
+            "shape": 17,
+            "texture": 0,
+            "other": 3,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 85.0
+          },
+          "0_1": {
+            "shape": 15,
+            "texture": 0,
+            "other": 5,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 75.0
+          },
+          "1_0": {
+            "shape": 19,
+            "texture": 1,
+            "other": 0,
+            "shape_bias_pct": 95.0,
+            "coverage_pct": 100.0
+          },
+          "1_1": {
+            "shape": 18,
+            "texture": 1,
+            "other": 1,
+            "shape_bias_pct": 94.73684210526316,
+            "coverage_pct": 95.0
+          },
+          "2_0": {
+            "shape": 20,
+            "texture": 0,
+            "other": 0,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 100.0
+          },
+          "2_1": {
+            "shape": 16,
+            "texture": 4,
+            "other": 0,
+            "shape_bias_pct": 80.0,
+            "coverage_pct": 100.0
+          },
+          "3_0": {
+            "shape": 13,
+            "texture": 5,
+            "other": 2,
+            "shape_bias_pct": 72.22222222222223,
+            "coverage_pct": 90.0
+          },
+          "3_1": {
+            "shape": 18,
+            "texture": 1,
+            "other": 1,
+            "shape_bias_pct": 94.73684210526316,
+            "coverage_pct": 95.0
+          },
+          "4_0": {
+            "shape": 20,
+            "texture": 0,
+            "other": 0,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 100.0
+          },
+          "4_1": {
+            "shape": 15,
+            "texture": 4,
+            "other": 1,
+            "shape_bias_pct": 78.94736842105263,
+            "coverage_pct": 95.0
+          }
+        }
+      },
+      "representation_stability": {
+        "grayscale": 0.7393350601196289,
+        "patch": 0.6572410464286804,
+        "cue": 0.5212805867195129,
+        "translation_8": 0.9471183270215988,
+        "translation_16": 0.9743198156356812,
+        "translation_32": 0.9417605400085449
+      }
+    },
+    "clip_vit_b_32": {
+      "clean": {
+        "accuracy": 0.984,
+        "macro_f1": 0.9839784096056665,
+        "mean_max_confidence": 0.8495095372200012
+      },
+      "interventions": {
+        "grayscale": {
+          "accuracy": 0.97,
+          "macro_f1": 0.9699864406591244,
+          "mean_max_confidence": 0.7939187288284302,
+          "accuracy_delta": -0.014000000000000012,
+          "consistency": 0.974
+        },
+        "hue": {
+          "accuracy": 0.964,
+          "macro_f1": 0.96418790711935,
+          "mean_max_confidence": 0.8069692254066467,
+          "accuracy_delta": -0.020000000000000018,
+          "consistency": 0.972
+        },
+        "patch": {
+          "accuracy": 0.834,
+          "macro_f1": 0.8355793350505859,
+          "mean_max_confidence": 0.5833860635757446,
+          "accuracy_delta": -0.15000000000000002,
+          "consistency": 0.842
+        }
+      },
+      "translation": {
+        "0": {
+          "accuracy": 0.984,
+          "consistency": 1.0
+        },
+        "8": {
+          "accuracy": 0.9849999999999999,
+          "consistency": 0.9914999999999999
+        },
+        "16": {
+          "accuracy": 0.9829999999999999,
+          "consistency": 0.9865
+        },
+        "32": {
+          "accuracy": 0.978,
+          "consistency": 0.9864999999999999
+        }
+      },
+      "cue_conflicts": {
+        "shape": 172,
+        "texture": 17,
+        "other": 11,
+        "shape_bias_pct": 91.005291005291,
+        "coverage_pct": 94.5,
+        "by_pair_direction": {
+          "0_0": {
+            "shape": 18,
+            "texture": 1,
+            "other": 1,
+            "shape_bias_pct": 94.73684210526316,
+            "coverage_pct": 95.0
+          },
+          "0_1": {
+            "shape": 14,
+            "texture": 2,
+            "other": 4,
+            "shape_bias_pct": 87.5,
+            "coverage_pct": 80.0
+          },
+          "1_0": {
+            "shape": 17,
+            "texture": 2,
+            "other": 1,
+            "shape_bias_pct": 89.47368421052632,
+            "coverage_pct": 95.0
+          },
+          "1_1": {
+            "shape": 19,
+            "texture": 0,
+            "other": 1,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 95.0
+          },
+          "2_0": {
+            "shape": 19,
+            "texture": 1,
+            "other": 0,
+            "shape_bias_pct": 95.0,
+            "coverage_pct": 100.0
+          },
+          "2_1": {
+            "shape": 16,
+            "texture": 3,
+            "other": 1,
+            "shape_bias_pct": 84.21052631578948,
+            "coverage_pct": 95.0
+          },
+          "3_0": {
+            "shape": 14,
+            "texture": 5,
+            "other": 1,
+            "shape_bias_pct": 73.6842105263158,
+            "coverage_pct": 95.0
+          },
+          "3_1": {
+            "shape": 19,
+            "texture": 0,
+            "other": 1,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 95.0
+          },
+          "4_0": {
+            "shape": 20,
+            "texture": 0,
+            "other": 0,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 100.0
+          },
+          "4_1": {
+            "shape": 16,
+            "texture": 3,
+            "other": 1,
+            "shape_bias_pct": 84.21052631578948,
+            "coverage_pct": 95.0
+          }
+        }
+      },
+      "representation_stability": {
+        "grayscale": 0.8982993960380554,
+        "patch": 0.7281351685523987,
+        "cue": 0.7627794146537781,
+        "translation_8": 0.9810139983892441,
+        "translation_16": 0.9679674208164215,
+        "translation_32": 0.9699154794216156
+      }
+    },
+    "clip_zero_shot": {
+      "clean": {
+        "accuracy": 0.98,
+        "macro_f1": 0.9798839921143818,
+        "mean_max_confidence": 0.9547560811042786
+      },
+      "interventions": {
+        "grayscale": {
+          "accuracy": 0.97,
+          "macro_f1": 0.9698000882357014,
+          "mean_max_confidence": 0.9379802346229553,
+          "accuracy_delta": -0.010000000000000009,
+          "consistency": 0.972
+        },
+        "hue": {
+          "accuracy": 0.964,
+          "macro_f1": 0.9638581801332385,
+          "mean_max_confidence": 0.936842679977417,
+          "accuracy_delta": -0.016000000000000014,
+          "consistency": 0.974
+        },
+        "patch": {
+          "accuracy": 0.834,
+          "macro_f1": 0.8322613552602596,
+          "mean_max_confidence": 0.8218424320220947,
+          "accuracy_delta": -0.14600000000000002,
+          "consistency": 0.838
+        }
+      },
+      "translation": {
+        "0": {
+          "accuracy": 0.98,
+          "consistency": 1.0
+        },
+        "8": {
+          "accuracy": 0.978,
+          "consistency": 0.9865
+        },
+        "16": {
+          "accuracy": 0.9770000000000001,
+          "consistency": 0.983
+        },
+        "32": {
+          "accuracy": 0.9664999999999999,
+          "consistency": 0.9825
+        }
+      },
+      "cue_conflicts": {
+        "shape": 168,
+        "texture": 14,
+        "other": 18,
+        "shape_bias_pct": 92.3076923076923,
+        "coverage_pct": 91.0,
+        "by_pair_direction": {
+          "0_0": {
+            "shape": 13,
+            "texture": 3,
+            "other": 4,
+            "shape_bias_pct": 81.25,
+            "coverage_pct": 80.0
+          },
+          "0_1": {
+            "shape": 15,
+            "texture": 1,
+            "other": 4,
+            "shape_bias_pct": 93.75,
+            "coverage_pct": 80.0
+          },
+          "1_0": {
+            "shape": 17,
+            "texture": 2,
+            "other": 1,
+            "shape_bias_pct": 89.47368421052632,
+            "coverage_pct": 95.0
+          },
+          "1_1": {
+            "shape": 20,
+            "texture": 0,
+            "other": 0,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 100.0
+          },
+          "2_0": {
+            "shape": 19,
+            "texture": 1,
+            "other": 0,
+            "shape_bias_pct": 95.0,
+            "coverage_pct": 100.0
+          },
+          "2_1": {
+            "shape": 16,
+            "texture": 4,
+            "other": 0,
+            "shape_bias_pct": 80.0,
+            "coverage_pct": 100.0
+          },
+          "3_0": {
+            "shape": 13,
+            "texture": 3,
+            "other": 4,
+            "shape_bias_pct": 81.25,
+            "coverage_pct": 80.0
+          },
+          "3_1": {
+            "shape": 17,
+            "texture": 0,
+            "other": 3,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 85.0
+          },
+          "4_0": {
+            "shape": 19,
+            "texture": 0,
+            "other": 1,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 95.0
+          },
+          "4_1": {
+            "shape": 19,
+            "texture": 0,
+            "other": 1,
+            "shape_bias_pct": 100.0,
+            "coverage_pct": 95.0
+          }
+        }
+      },
+      "representation_stability": {
+        "grayscale": 0.8982993960380554,
+        "patch": 0.7281351685523987,
+        "cue": 0.7627794146537781,
+        "translation_8": 0.9810139983892441,
+        "translation_16": 0.9679674208164215,
+        "translation_32": 0.9699154794216156
+      }
+    }
+  },
+  "cue_review_counts": {
+    "0_0": {
+      "accepted": 31,
+      "rejected": 9
+    },
+    "0_1": {
+      "accepted": 35,
+      "rejected": 5
+    },
+    "1_0": {
+      "accepted": 34,
+      "rejected": 6
+    },
+    "1_1": {
+      "accepted": 36,
+      "rejected": 4
+    },
+    "2_0": {
+      "accepted": 37,
+      "rejected": 3
+    },
+    "2_1": {
+      "accepted": 37,
+      "rejected": 3
+    },
+    "3_0": {
+      "accepted": 34,
+      "rejected": 6
+    },
+    "3_1": {
+      "accepted": 30,
+      "rejected": 10
+    },
+    "4_0": {
+      "accepted": 37,
+      "rejected": 3
+    },
+    "4_1": {
+      "accepted": 37,
+      "rejected": 3
+    }
+  }
+}
