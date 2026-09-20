@@ -29,7 +29,8 @@ class FrozenBackbone(nn.Module):
         elif name == "clip_vit_b_32":
             import open_clip
 
-            net, _, _ = open_clip.create_model_and_transforms("ViT-B-32", pretrained="openai")
+            # OpenAI's ViT-B/32 checkpoint was trained with QuickGELU.
+            net, _, _ = open_clip.create_model_and_transforms("ViT-B-32-quickgelu", pretrained="openai")
             self.dim = net.visual.output_dim
             self.norm = T.Normalize(CLIP_MEAN, CLIP_STD)
         else:
@@ -53,7 +54,7 @@ class FrozenBackbone(nn.Module):
             raise ValueError("Zero-shot evaluation requires CLIP")
         import open_clip
 
-        tokens = open_clip.get_tokenizer("ViT-B-32")(
+        tokens = open_clip.get_tokenizer("ViT-B-32-quickgelu")(
             [f"a photo of a {name}." for name in classes]
         ).to(self.device)
         texts = F.normalize(self.net.encode_text(tokens).float(), dim=-1)

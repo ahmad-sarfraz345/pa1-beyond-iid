@@ -94,9 +94,9 @@ def zero_shot_probability(features, texts, scale, device):
         return (scale * x @ texts.T).softmax(dim=1).cpu().numpy()
 
 
-def train_command(config, manifest, device):
+def train_command(config, manifest, device, selected_model=None):
     dataset = load_dataset(DATA, "train")
-    for name in NAMES:
+    for name in (selected_model,) if selected_model else NAMES:
         model = FrozenBackbone(name, device)
         train_ids, val_ids = manifest["train_ids"], manifest["val_ids"]
         train_x = batched_features(model, [image224(dataset, i) for i in train_ids],
@@ -248,6 +248,7 @@ def main():
     parser.add_argument("--adain-repo", type=Path)
     parser.add_argument("--vgg-weights", type=Path)
     parser.add_argument("--decoder-weights", type=Path)
+    parser.add_argument("--model", choices=NAMES, help="Train just one backbone's linear head")
     args = parser.parse_args()
     config = json.loads(CONFIG.read_text())
     seed_all(config["seed"])
@@ -264,7 +265,7 @@ def main():
                          args.decoder_weights, config, device)
         print(f"Generated {count} candidates; review cue_review.csv and contact sheets before evaluation")
     elif args.command == "train":
-        train_command(config, manifest, device)
+        train_command(config, manifest, device, args.model)
     elif args.command == "evaluate":
         evaluate_command(config, manifest, device)
 
