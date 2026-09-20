@@ -35,7 +35,7 @@ python -m task1.scripts.run_task1 conflicts --adain-repo /tmp/pytorch-AdaIN --vg
 python -m task1.scripts.run_task1 train
 ```
 
-**Visual review is required before evaluation.** Open all `task1/results/cue_review_*.jpg` sheets. For each row in `task1/results/cue_review.csv`, set `accept` to `yes` or `no` using the rejection rule in `cue_rule.txt`. Record a short `reason` for each rejection. The evaluator refuses pending decisions and requires at least 20 accepted candidates for each of the 10 pair/direction groups. It takes the first 20 accepted per group for exactly 200 balanced conflicts. Screening must be done without model predictions.
+**Visual review is required before evaluation.** Open all `task1/results/cue_review_*.jpg` sheets. For each row in `task1/results/cue_review.csv`, set `accept` to `yes` or `no` using the rejection rule in `task1/results/cue_rule.txt`. Record a short `reason` for each rejection. The evaluator refuses pending decisions and requires at least 20 accepted candidates for each of the 10 pair/direction groups. It takes the first 20 accepted per group for exactly 200 balanced conflicts. Screening must be done without model predictions.
 
 ```bash
 python -m task1.scripts.run_task1 evaluate

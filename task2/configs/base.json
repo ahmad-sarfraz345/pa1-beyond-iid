@@ -1,0 +1,18 @@
+{
+  "seed": 6304,
+  "max_epochs": 30,
+  "patience": 5,
+  "source_batch_per_domain": 8,
+  "target_batch": 24,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "study_hypothesis": "Increasing MMD weight should reduce domain separability, but excessive alignment may hurt class discrimination. The three weights are fixed before target-label evaluation.",
+  "methods": {
+    "source_only": {"kind": "source_only"},
+    "dan_0p1": {"kind": "dan", "mmd_weight": 0.1},
+    "dan": {"kind": "dan", "mmd_weight": 1.0},
+    "dan_10": {"kind": "dan", "mmd_weight": 10.0},
+    "dann": {"kind": "dann", "max_grl": 1.0},
+    "cdan": {"kind": "cdan", "max_grl": 1.0}
+  }
+}
