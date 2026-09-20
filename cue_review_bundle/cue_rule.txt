@@ -1,0 +1,1 @@
+Reject if the content object's outline is no longer recognizable, the image has severe artifacts, or the style class has no recognizable visual texture. Apply without viewing model predictions.
