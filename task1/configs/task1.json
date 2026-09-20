@@ -1,0 +1,18 @@
+{
+  "seed": 6304,
+  "dataset": "STL10",
+  "test_per_class": 50,
+  "image_size": 224,
+  "batch_size": 32,
+  "head_max_epochs": 50,
+  "head_patience": 5,
+  "head_lr": 0.001,
+  "head_weight_decay": 0.0001,
+  "hue_degrees": 45,
+  "cue_pairs": [["cat", "dog"], ["deer", "horse"], ["car", "truck"], ["airplane", "bird"], ["airplane", "ship"]],
+  "cue_candidates_per_direction": 40,
+  "adain_alpha": 0.8,
+  "cue_rejection_rule": "Reject if the content object's outline is no longer recognizable, the image has severe artifacts, or the style class has no recognizable visual texture. Apply without viewing model predictions.",
+  "representation_per_class": 20,
+  "tsne_perplexity": 30
+}

@@ -1,0 +1,14 @@
+/data/
+.venv/
+__pycache__/
+*.pyc
+wandb/
+checkpoints/
+*.pth
+*.pt
+task1/results/images/
+task1/results/features/
+task1/results/heads/
+task1/results/cue_candidates/
+task1/results/cue_review_*.jpg
+task1/results/variants/
