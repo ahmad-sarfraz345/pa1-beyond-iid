@@ -6,6 +6,7 @@ wandb/
 checkpoints/
 *.pth
 *.pt
+task2/*artifacts.zip
 task1/results/images/
 task1/results/features/
 task1/results/heads/

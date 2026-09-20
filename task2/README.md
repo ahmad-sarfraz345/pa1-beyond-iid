@@ -14,7 +14,7 @@ This directory implements the assignment's fixed Photo / Art Painting / Cartoon 
 
 ## Dataset layout
 
-Point `--data-root` to a directory containing `photo/`, `art_painting/`, `cartoon/`, and `sketch/`, each with seven class directories such as `dog/`, `elephant/`, and so on. Keep the same data root for `prepare`, `train`, and `evaluate_final`. PACS is available through the link used by [DomainBed's dataset downloader](https://github.com/facebookresearch/DomainBed/blob/main/domainbed/scripts/download.py). Its ZIP extracts a `kfold/` directory that matches this layout. Raw images belong under ignored `data/`, outside Git.
+Point `--data-root` to the `pacs/images/` directory containing `photo/`, `art_painting/`, `cartoon/`, and `sketch/`, each with seven class directories such as `dog/`, `elephant/`, and so on. Keep the same data root for `prepare`, `train`, and `evaluate_final`. This layout is documented by [Dassl.pytorch](https://github.com/KaiyangZhou/Dassl.pytorch/blob/master/DATASETS.md#pacs). Ignore the dataset's supplied `pacs/splits/` files: this assignment creates its own seeded source split. Raw images stay in Kaggle Input or ignored `data/`, outside Git.
 
 ## Kaggle GPU, from a fresh notebook
 
@@ -23,18 +23,21 @@ Point `--data-root` to a directory containing `photo/`, `art_painting/`, `cartoo
    ```python
    !git clone YOUR_REPO_URL /kaggle/working/pa1-beyond-iid
    %cd /kaggle/working/pa1-beyond-iid
-   !python -m pip install -q -r requirements.txt gdown
+   !python -m pip install -q -r requirements.txt
    !python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
    ```
 
-2. Download PACS from the URL recorded in DomainBed, then inspect the extracted layout. If Google Drive limits the download, attach a PACS Kaggle dataset instead and set `DATA_ROOT` to its directory containing the four domains.
+2. Attach the PACS dataset containing `pacs/images/` through Kaggle's **Add Input** panel. Locate its exact image root (the Kaggle input slug may differ):
 
    ```python
-   !mkdir -p data
-   !gdown 'https://drive.google.com/uc?id=1JFr8f805nMUelQWWmfnJR3y4_SYoN5Pd' -O data/PACS.zip
-   !unzip -q data/PACS.zip -d data
-   !find data/kfold -maxdepth 2 -type d | head -25
-   DATA_ROOT = "data/kfold"
+   from pathlib import Path
+   domains = ("photo", "art_painting", "cartoon", "sketch")
+   matches = [p for p in Path("/kaggle/input").rglob("images")
+              if p.is_dir() and all((p / d).is_dir() for d in domains)]
+   print(matches)
+   assert len(matches) == 1, "Select the PACS images directory from the printed matches"
+   DATA_ROOT = str(matches[0])
+   print("Using:", DATA_ROOT)
    ```
 
 3. Create or validate the saved source split. If the split file was committed from an earlier session, `prepare` reuses it. It does not overwrite it.
@@ -67,4 +70,4 @@ For a new Kaggle session after training, restore the archive into the cloned rep
 
 ## Files and attribution
 
-`task2/train.py` runs training, `task2/evaluate_final.py` runs the final labeled evaluation, `task2/models.py` and `task2/methods.py` define the objectives, and `shared/` holds the PACS loader and saved source split. ResNet-18 and pretrained weights are loaded through [torchvision](https://pytorch.org/vision/stable/models/generated/torchvision.models.resnet18.html); PACS acquisition follows [DomainBed](https://github.com/facebookresearch/DomainBed/blob/main/domainbed/scripts/download.py). These are external dependencies, not copied implementations.
+`task2/train.py` runs training, `task2/evaluate_final.py` runs the final labeled evaluation, `task2/models.py` and `task2/methods.py` define the objectives, and `shared/` holds the PACS loader and saved source split. ResNet-18 and pretrained weights are loaded through [torchvision](https://pytorch.org/vision/stable/models/generated/torchvision.models.resnet18.html); PACS folder structure follows [Dassl.pytorch](https://github.com/KaiyangZhou/Dassl.pytorch/blob/master/DATASETS.md#pacs). These are external dependencies, not copied implementations.
