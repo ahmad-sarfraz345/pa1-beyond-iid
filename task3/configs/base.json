@@ -1,0 +1,16 @@
+{
+  "seed": 6304,
+  "max_epochs": 30,
+  "patience": 5,
+  "source_batch_per_domain": 8,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "erm_checkpoint_sha256": "d253b126b107f3140b11a0897fd4dd92d8a7e8a2adb32378ff1598edc40d390d",
+  "study_hypothesis": "Increasing pairwise source-domain MMD weight should lower source-domain separability, but weight 10 may remove class-discriminative structure and reduce source and Sketch performance.",
+  "methods": {
+    "dan_dg_0p1": {"kind": "dan_dg", "mmd_weight": 0.1},
+    "dan_dg": {"kind": "dan_dg", "mmd_weight": 1.0},
+    "dan_dg_10": {"kind": "dan_dg", "mmd_weight": 10.0},
+    "sam": {"kind": "sam", "rho": 0.05}
+  }
+}

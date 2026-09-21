@@ -1,10 +1,12 @@
 # ATML Programming Assignment 1
 
-This repository contains the assignment manual and the Task 1 and Task 2 implementations. Tasks 3–4 will be added separately.
+This repository contains the assignment manual and the Task 1–3 implementations. Task 4 will be added separately.
 
 See [Task 1 instructions](task1/README.md) for the experimental choices, commands, outputs, and cloud GPU workflow. Raw datasets, generated images, and large model checkpoints are excluded from Git. Small JSON/CSV result files and figures can be committed after an experiment.
 
 See [Task 2 instructions](task2/README.md) for the PACS adaptation protocol and Kaggle GPU commands. Task 2's source-only checkpoint and source split must be retained for Task 3.
+
+See [Task 3 instructions](task3/README.md) for the target-free PACS domain-generalization protocol and Kaggle GPU commands.
 
 The course permits LLM coding assistance but requires the student to understand all submitted code. **The PDF report must be written entirely by the student without generative AI.**
 
