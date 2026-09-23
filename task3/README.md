@@ -41,17 +41,22 @@ print("Using:", DATA_ROOT)
 
 The expected path ends in `pacs/images`. Do not use `pacs/splits`; Task 3 reuses the committed assignment split.
 
-### 3. Restore the Task 2 checkpoints
+### 3. Restore the Task 2 ERM checkpoint
 
-Attach the saved Task 2 notebook output or upload `task2_artifacts.zip` as a private Kaggle dataset. Find and extract it into the repository:
+Attach the saved Task 2 artifacts as a Kaggle dataset. Kaggle expands the uploaded archive under `/kaggle/input`, which is read-only. Locate the unchanged ERM checkpoint and copy it into the cloned repository:
 
 ```python
-artifact_matches = list(Path("/kaggle/input").rglob("task2_artifacts.zip"))
-print(artifact_matches)
-assert len(artifact_matches) == 1, "Attach the Task 2 artifact ZIP"
-TASK2_ZIP = str(artifact_matches[0])
-!unzip -q -o "{TASK2_ZIP}" -d /kaggle/working/pa1-beyond-iid
-!ls -lh task2/checkpoints/source_only.pt
+import shutil
+
+artifact_root = Path("/kaggle/input/datasets/ahmadsarfraz345/task2-artifacts")
+checkpoint_matches = list(artifact_root.rglob("source_only.pt"))
+print(checkpoint_matches)
+assert len(checkpoint_matches) == 1, "Expected exactly one source_only.pt"
+
+destination = Path("/kaggle/working/pa1-beyond-iid/task2/checkpoints/source_only.pt")
+destination.parent.mkdir(parents=True, exist_ok=True)
+shutil.copy2(checkpoint_matches[0], destination)
+print("Copied to:", destination)
 ```
 
 Verify that this is the unchanged checkpoint used by Task 2:

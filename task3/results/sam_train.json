@@ -1,0 +1,285 @@
+{
+  "method": "sam",
+  "configuration": {
+    "kind": "sam",
+    "rho": 0.05
+  },
+  "config_sha256": "4b64fbce9ba17c318711762ed51c1e6a495bd7c720b4104cba86be9cad588207",
+  "split_sha256": "a00d5fc8a02222363cf64a0392ca883ee903ac6186328af65e4e3e81b78d3b44",
+  "best_source_val_mean_macro_f1": 0.9567020700330353,
+  "history": [
+    {
+      "epoch": 1,
+      "source_val_mean_macro_f1": 0.8750290977356929,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.937125748502994,
+          "macro_f1": 0.9262493015306689
+        },
+        "art_painting": {
+          "accuracy": 0.8365853658536585,
+          "macro_f1": 0.8341718753993126
+        },
+        "cartoon": {
+          "accuracy": 0.8550106609808102,
+          "macro_f1": 0.8646661162770977
+        }
+      },
+      "classification_loss": 1.0184899477248497,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 1.2877965814255654
+    },
+    {
+      "epoch": 2,
+      "source_val_mean_macro_f1": 0.9158498177514689,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9520958083832335,
+          "macro_f1": 0.9437966824275257
+        },
+        "art_painting": {
+          "accuracy": 0.8951219512195122,
+          "macro_f1": 0.8958030599119137
+        },
+        "cartoon": {
+          "accuracy": 0.906183368869936,
+          "macro_f1": 0.9079497109149673
+        }
+      },
+      "classification_loss": 0.28349291569692026,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.5439027666411501
+    },
+    {
+      "epoch": 3,
+      "source_val_mean_macro_f1": 0.9212238077921521,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9640718562874252,
+          "macro_f1": 0.9556257390208032
+        },
+        "art_painting": {
+          "accuracy": 0.8829268292682927,
+          "macro_f1": 0.8796985339079304
+        },
+        "cartoon": {
+          "accuracy": 0.9232409381663113,
+          "macro_f1": 0.9283471504477225
+        }
+      },
+      "classification_loss": 0.18528215222139943,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.4060369590178449
+    },
+    {
+      "epoch": 4,
+      "source_val_mean_macro_f1": 0.9467513788706275,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9760479041916168,
+          "macro_f1": 0.9718564200091034
+        },
+        "art_painting": {
+          "accuracy": 0.9170731707317074,
+          "macro_f1": 0.9137364393411272
+        },
+        "cartoon": {
+          "accuracy": 0.9488272921108742,
+          "macro_f1": 0.9546612772616517
+        }
+      },
+      "classification_loss": 0.12262485678842727,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.3002696944202514
+    },
+    {
+      "epoch": 5,
+      "source_val_mean_macro_f1": 0.9469538860530905,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9820359281437125,
+          "macro_f1": 0.9791769959657362
+        },
+        "art_painting": {
+          "accuracy": 0.9097560975609756,
+          "macro_f1": 0.9082180772293917
+        },
+        "cartoon": {
+          "accuracy": 0.9488272921108742,
+          "macro_f1": 0.9534665849641433
+        }
+      },
+      "classification_loss": 0.08379975471526702,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.23654970821548016
+    },
+    {
+      "epoch": 6,
+      "source_val_mean_macro_f1": 0.9359786550563679,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9700598802395209,
+          "macro_f1": 0.9651218484388133
+        },
+        "art_painting": {
+          "accuracy": 0.8878048780487805,
+          "macro_f1": 0.8890841636099166
+        },
+        "cartoon": {
+          "accuracy": 0.9466950959488273,
+          "macro_f1": 0.9537299531203738
+        }
+      },
+      "classification_loss": 0.06289745447315039,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.20646712843407977
+    },
+    {
+      "epoch": 7,
+      "source_val_mean_macro_f1": 0.9341113455670321,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9760479041916168,
+          "macro_f1": 0.9722549773883883
+        },
+        "art_painting": {
+          "accuracy": 0.8926829268292683,
+          "macro_f1": 0.890357338135885
+        },
+        "cartoon": {
+          "accuracy": 0.9317697228144989,
+          "macro_f1": 0.9397217211768233
+        }
+      },
+      "classification_loss": 0.04871060650379575,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.18436505997434577
+    },
+    {
+      "epoch": 8,
+      "source_val_mean_macro_f1": 0.9567020700330353,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9700598802395209,
+          "macro_f1": 0.9647398744552038
+        },
+        "art_painting": {
+          "accuracy": 0.9390243902439024,
+          "macro_f1": 0.9394167500897235
+        },
+        "cartoon": {
+          "accuracy": 0.9616204690831557,
+          "macro_f1": 0.9659495855541784
+        }
+      },
+      "classification_loss": 0.040628138611568734,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.1624832162673169
+    },
+    {
+      "epoch": 9,
+      "source_val_mean_macro_f1": 0.9441046598137207,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9670658682634731,
+          "macro_f1": 0.9618090894619352
+        },
+        "art_painting": {
+          "accuracy": 0.9097560975609756,
+          "macro_f1": 0.9040095480373802
+        },
+        "cartoon": {
+          "accuracy": 0.9616204690831557,
+          "macro_f1": 0.9664953419418467
+        }
+      },
+      "classification_loss": 0.02636711276755569,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.1305205826825918
+    },
+    {
+      "epoch": 10,
+      "source_val_mean_macro_f1": 0.9487989886395031,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9730538922155688,
+          "macro_f1": 0.9707243003017652
+        },
+        "art_painting": {
+          "accuracy": 0.9219512195121952,
+          "macro_f1": 0.9203892550373507
+        },
+        "cartoon": {
+          "accuracy": 0.9488272921108742,
+          "macro_f1": 0.9552834105793933
+        }
+      },
+      "classification_loss": 0.030072659188311826,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.14062158162606522
+    },
+    {
+      "epoch": 11,
+      "source_val_mean_macro_f1": 0.9474225040677279,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9790419161676647,
+          "macro_f1": 0.9748487967132614
+        },
+        "art_painting": {
+          "accuracy": 0.9243902439024391,
+          "macro_f1": 0.920338892970472
+        },
+        "cartoon": {
+          "accuracy": 0.9424307036247335,
+          "macro_f1": 0.9470798225194501
+        }
+      },
+      "classification_loss": 0.02324792476113331,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.13418968285017827
+    },
+    {
+      "epoch": 12,
+      "source_val_mean_macro_f1": 0.9502640212734792,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9760479041916168,
+          "macro_f1": 0.9730969929562286
+        },
+        "art_painting": {
+          "accuracy": 0.9121951219512195,
+          "macro_f1": 0.9166477389755402
+        },
+        "cartoon": {
+          "accuracy": 0.9573560767590619,
+          "macro_f1": 0.9610473318886689
+        }
+      },
+      "classification_loss": 0.016352884547334124,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.10276648251617208
+    },
+    {
+      "epoch": 13,
+      "source_val_mean_macro_f1": 0.9518985054173429,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9730538922155688,
+          "macro_f1": 0.9685960730795041
+        },
+        "art_painting": {
+          "accuracy": 0.9243902439024391,
+          "macro_f1": 0.9243519250293231
+        },
+        "cartoon": {
+          "accuracy": 0.9573560767590619,
+          "macro_f1": 0.9627475181432016
+        }
+      },
+      "classification_loss": 0.012198723634355702,
+      "mmd_penalty": 0.0,
+      "sam_perturbed_loss": 0.09732936534218173
+    }
+  ]
+}

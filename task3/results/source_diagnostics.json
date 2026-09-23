@@ -1,0 +1,182 @@
+{
+  "config_sha256": "4b64fbce9ba17c318711762ed51c1e6a495bd7c720b4104cba86be9cad588207",
+  "split_sha256": "a00d5fc8a02222363cf64a0392ca883ee903ac6186328af65e4e3e81b78d3b44",
+  "sketch_loaded": false,
+  "methods": {
+    "erm": {
+      "checkpoint_sha256": "d253b126b107f3140b11a0897fd4dd92d8a7e8a2adb32378ff1598edc40d390d",
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9730538922155688,
+          "macro_f1": 0.9693407895498838
+        },
+        "art_painting": {
+          "accuracy": 0.9073170731707317,
+          "macro_f1": 0.8994542418451278
+        },
+        "cartoon": {
+          "accuracy": 0.9275053304904051,
+          "macro_f1": 0.9313562915725451
+        }
+      },
+      "mean_accuracy": 0.9359587652922352,
+      "mean_macro_f1": 0.9333837743225187,
+      "worst_accuracy": 0.9073170731707317,
+      "worst_macro_f1": 0.8994542418451278,
+      "worst_accuracy_domain": "art_painting",
+      "worst_macro_f1_domain": "art_painting",
+      "source_domain_separability": {
+        "accuracy": 0.8637873754152824,
+        "samples_per_domain": 334,
+        "train_fraction": 0.7,
+        "chance_accuracy": 0.3333333333333333
+      },
+      "sharpness": {
+        "radius": 0.05,
+        "base_loss": 0.23591779172420502,
+        "perturbed_loss": 0.5699241757392883,
+        "loss_increase": 0.3340063691139221
+      }
+    },
+    "dan_dg_0p1": {
+      "checkpoint_sha256": "24fef77d80ca95a57aebeaee6306d2736c6510f731c1022660813e13b72f772f",
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9700598802395209,
+          "macro_f1": 0.9663222785670128
+        },
+        "art_painting": {
+          "accuracy": 0.9243902439024391,
+          "macro_f1": 0.9249006813626284
+        },
+        "cartoon": {
+          "accuracy": 0.9637526652452025,
+          "macro_f1": 0.9674636699756498
+        }
+      },
+      "mean_accuracy": 0.9527342631290542,
+      "mean_macro_f1": 0.9528955433017637,
+      "worst_accuracy": 0.9243902439024391,
+      "worst_macro_f1": 0.9249006813626284,
+      "worst_accuracy_domain": "art_painting",
+      "worst_macro_f1_domain": "art_painting",
+      "source_domain_separability": {
+        "accuracy": 0.7906976744186046,
+        "samples_per_domain": 334,
+        "train_fraction": 0.7,
+        "chance_accuracy": 0.3333333333333333
+      },
+      "sharpness": {
+        "radius": 0.05,
+        "base_loss": 0.05555638670921326,
+        "perturbed_loss": 0.1735115647315979,
+        "loss_increase": 0.11795517802238464
+      }
+    },
+    "dan_dg": {
+      "checkpoint_sha256": "3a389ae9dfa82ee5dd671b83a999d1c8c9cea6d981f4a9480aaa6e38a2b63225",
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "mean_accuracy": 0.21656837139595686,
+      "mean_macro_f1": 0.05066996495567924,
+      "worst_accuracy": 0.17270788912579957,
+      "worst_macro_f1": 0.04207792207792208,
+      "worst_accuracy_domain": "cartoon",
+      "worst_macro_f1_domain": "cartoon",
+      "source_domain_separability": {
+        "accuracy": 0.584717607973422,
+        "samples_per_domain": 334,
+        "train_fraction": 0.7,
+        "chance_accuracy": 0.3333333333333333
+      },
+      "sharpness": {
+        "radius": 0.05,
+        "base_loss": 1.9320610761642456,
+        "perturbed_loss": 1.9423214197158813,
+        "loss_increase": 0.010260343551635742
+      }
+    },
+    "dan_dg_10": {
+      "checkpoint_sha256": "bfbc436ac988a6eb07aee5e45a199723352eb699b8f31ac4324f0f6b6caa27d8",
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "mean_accuracy": 0.21656837139595686,
+      "mean_macro_f1": 0.05066996495567924,
+      "worst_accuracy": 0.17270788912579957,
+      "worst_macro_f1": 0.04207792207792208,
+      "worst_accuracy_domain": "cartoon",
+      "worst_macro_f1_domain": "cartoon",
+      "source_domain_separability": {
+        "accuracy": 0.5415282392026578,
+        "samples_per_domain": 334,
+        "train_fraction": 0.7,
+        "chance_accuracy": 0.3333333333333333
+      },
+      "sharpness": {
+        "radius": 0.05,
+        "base_loss": 1.9333480596542358,
+        "perturbed_loss": 1.9445387125015259,
+        "loss_increase": 0.011190652847290039
+      }
+    },
+    "sam": {
+      "checkpoint_sha256": "46b88510d45d05653fcaa950ef3b02dd60bd486a71274f1afd36a23cae19cea5",
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9700598802395209,
+          "macro_f1": 0.9647398744552038
+        },
+        "art_painting": {
+          "accuracy": 0.9390243902439024,
+          "macro_f1": 0.9394167500897235
+        },
+        "cartoon": {
+          "accuracy": 0.9616204690831557,
+          "macro_f1": 0.9659495855541784
+        }
+      },
+      "mean_accuracy": 0.9569015798555264,
+      "mean_macro_f1": 0.9567020700330353,
+      "worst_accuracy": 0.9390243902439024,
+      "worst_macro_f1": 0.9394167500897235,
+      "worst_accuracy_domain": "art_painting",
+      "worst_macro_f1_domain": "art_painting",
+      "source_domain_separability": {
+        "accuracy": 0.8637873754152824,
+        "samples_per_domain": 334,
+        "train_fraction": 0.7,
+        "chance_accuracy": 0.3333333333333333
+      },
+      "sharpness": {
+        "radius": 0.05,
+        "base_loss": 0.12016889452934265,
+        "perturbed_loss": 0.23187251389026642,
+        "loss_increase": 0.11170361936092377
+      }
+    }
+  }
+}
