@@ -6,9 +6,9 @@ from torch.nn import functional as F
 from task2.methods import mmd_loss
 
 
-def pairwise_source_mmd(features: list[torch.Tensor]) -> torch.Tensor:
+def pairwise_source_mmd(features: list[torch.Tensor], normalize_features=False) -> torch.Tensor:
     """Average MMD over the three unordered pairs of source domains."""
-    penalties = [mmd_loss(features[i], features[j])
+    penalties = [mmd_loss(features[i], features[j], normalize_features)
                  for i in range(len(features)) for j in range(i + 1, len(features))]
     return torch.stack(penalties).mean()
 

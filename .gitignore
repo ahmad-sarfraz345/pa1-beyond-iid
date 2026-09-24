@@ -11,6 +11,13 @@ task3/*artifacts.zip
 task4/*artifacts.zip
 task4/results/*artifacts.zip
 task4/cache/
+task2/supplemental/checkpoints/
+task3/supplemental/checkpoints/
+task4/supplemental/checkpoints/
+task4/supplemental/cache/
+task2/supplemental/*artifacts.zip
+task3/supplemental/*artifacts.zip
+task4/supplemental/*artifacts.zip
 task1/results/images/
 task1/results/features/
 task1/results/heads/

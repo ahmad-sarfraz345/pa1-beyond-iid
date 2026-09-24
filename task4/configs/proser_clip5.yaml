@@ -1,0 +1,16 @@
+seed: 6304
+method: proser_clip5
+epochs: 50
+batch_size: 128
+learning_rate: 0.001
+momentum: 0.9
+weight_decay: 0.0005
+num_workers: 2
+num_dummies: 5
+beta: 1.0
+gamma: 0.1
+mixup_alpha: 2.0
+placeholder_temperature: 1024.0
+gradient_clip_norm: 5.0
+vanilla_checkpoint_sha256: 572934df5420772963dce9a2d7f502d8720960f91b8122a652516b716a135b54
+selection_rule: CIFAR-10 validation accuracy only; CIFAR-100 remains unavailable until extraction.

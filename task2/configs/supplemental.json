@@ -1,0 +1,39 @@
+{
+  "seed": 6304,
+  "max_epochs": 30,
+  "patience": 5,
+  "source_batch_per_domain": 8,
+  "target_batch": 24,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "source_only_checkpoint_sha256": "d253b126b107f3140b11a0897fd4dd92d8a7e8a2adb32378ff1598edc40d390d",
+  "selection_rule": "Mean source-validation macro-F1 only; Sketch labels remain unavailable until final supplemental evaluation.",
+  "methods": {
+    "dan_clip5": {
+      "kind": "dan",
+      "mmd_weight": 1.0,
+      "gradient_clip_norm": 5.0,
+      "normalize_mmd_features": false,
+      "record_prediction_histogram": true
+    },
+    "dan_norm_clip5": {
+      "kind": "dan",
+      "mmd_weight": 1.0,
+      "gradient_clip_norm": 5.0,
+      "normalize_mmd_features": true,
+      "record_prediction_histogram": true
+    },
+    "dann_clip5": {
+      "kind": "dann",
+      "max_grl": 1.0,
+      "gradient_clip_norm": 5.0,
+      "record_prediction_histogram": true
+    },
+    "cdan_clip5": {
+      "kind": "cdan",
+      "max_grl": 1.0,
+      "gradient_clip_norm": 5.0,
+      "record_prediction_histogram": true
+    }
+  }
+}

@@ -10,6 +10,8 @@ See [Task 3 instructions](task3/README.md) for the target-free PACS domain-gener
 
 See [Task 4 instructions](task4/README.md) for the CIFAR open-set-recognition protocol and a complete fresh-session Kaggle workflow.
 
+See [Supplemental stabilization plan](STABILIZATION_PLAN.md) for the preregistered clipping and normalized-feature fallbacks, and [Supplemental Kaggle guide](SUPPLEMENTAL_KAGGLE.md) for the complete rerun workflow.
+
 The course permits LLM coding assistance but requires the student to understand all submitted code. **The PDF report must be written entirely by the student without generative AI.**
 
 ## External implementation attribution

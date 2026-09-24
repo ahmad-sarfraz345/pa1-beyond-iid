@@ -73,16 +73,32 @@ def validate(model, root: Path, split: dict, device, workers: int):
     return metrics, float(np.mean([metrics[d]["macro_f1"] for d in SOURCES]))
 
 
-def train_one(name: str, root: Path, config: dict, split: dict, workers: int, device):
+@torch.no_grad()
+def validation_prediction_histogram(model, root, split, device, workers):
+    """Count source-validation predictions without accessing target labels."""
+    model.eval()
+    counts = torch.zeros(7, dtype=torch.long)
+    for domain in SOURCES:
+        dataset = PACSImages(root, split["sources"][domain]["val"], train=False)
+        data_loader = loader(dataset, 64, 6304, False, workers)
+        for images, _, _ in data_loader:
+            logits, _ = model(images.to(device))
+            counts += torch.bincount(logits.argmax(1).cpu(), minlength=7)
+    return counts.tolist()
+
+
+def train_one(name: str, root: Path, config: dict, split: dict, workers: int, device,
+              config_path: Path = CONFIG, checkpoints: Path = CHECKPOINTS,
+              results: Path = RESULTS):
     specification = config["methods"][name]
     kind = specification["kind"]
-    CHECKPOINTS.mkdir(parents=True, exist_ok=True)
-    RESULTS.mkdir(parents=True, exist_ok=True)
-    complete_path = RESULTS / f"{name}_train.json"
-    checkpoint_path = CHECKPOINTS / f"{name}.pt"
+    checkpoints.mkdir(parents=True, exist_ok=True)
+    results.mkdir(parents=True, exist_ok=True)
+    complete_path = results / f"{name}_train.json"
+    checkpoint_path = checkpoints / f"{name}.pt"
     if complete_path.exists() and checkpoint_path.exists():
         record = json.loads(complete_path.read_text(encoding="utf-8"))
-        if (record.get("config_sha256") != hashlib.sha256(CONFIG.read_bytes()).hexdigest()
+        if (record.get("config_sha256") != hashlib.sha256(config_path.read_bytes()).hexdigest()
                 or record.get("split_sha256") != hashlib.sha256(SPLIT.read_bytes()).hexdigest()):
             raise ValueError(f"Completed {name} used a different config or source split")
         print(f"Skipping completed {name}")
@@ -149,7 +165,8 @@ def train_one(name: str, root: Path, config: dict, split: dict, workers: int, de
                 (target_images, _, _), target_iterator = next_batch(target_iterator, target_loader)
                 target_logits, target_features = model(target_images.to(device, non_blocking=True))
                 if kind == "dan":
-                    alignment = mmd_loss(source_features, target_features)
+                    alignment = mmd_loss(source_features, target_features,
+                                         specification.get("normalize_mmd_features", False))
                     loss = class_loss + specification["mmd_weight"] * alignment
                 else:
                     progress = (epoch * steps + step) / max(total_steps - 1, 1)
@@ -161,7 +178,15 @@ def train_one(name: str, root: Path, config: dict, split: dict, workers: int, de
                     loss = class_loss + alignment
             else:
                 loss = class_loss
+            if not torch.isfinite(loss):
+                raise FloatingPointError(f"Non-finite loss in {name} at epoch {epoch + 1}, step {step}")
             loss.backward()
+            clip_norm = specification.get("gradient_clip_norm")
+            if clip_norm is not None:
+                gradient_norm = torch.nn.utils.clip_grad_norm_(
+                    parameters, clip_norm, error_if_nonfinite=True)
+                sums.setdefault("gradient_norm", 0.0)
+                sums["gradient_norm"] += float(gradient_norm.detach().cpu())
             optimizer.step()
             sums["class_loss"] += class_loss.item()
             sums["alignment_loss"] += alignment.item()
@@ -170,6 +195,9 @@ def train_one(name: str, root: Path, config: dict, split: dict, workers: int, de
         val, score = validate(model, root, split, device, workers)
         row = {"epoch": epoch + 1, "source_val_mean_macro_f1": score,
                "source_val": val, **{key: value / steps for key, value in sums.items()}}
+        if specification.get("record_prediction_histogram", False):
+            row["source_val_prediction_histogram"] = validation_prediction_histogram(
+                model, root, split, device, workers)
         history.append(row)
         print(f"{name} epoch {epoch + 1}: source val mean macro-F1={score:.4f}")
         if score > best + 1e-12:
@@ -182,7 +210,7 @@ def train_one(name: str, root: Path, config: dict, split: dict, workers: int, de
         if stale >= config["patience"]:
             break
     complete_path.write_text(json.dumps({"method": name, "configuration": specification,
-                                         "config_sha256": hashlib.sha256(CONFIG.read_bytes()).hexdigest(),
+                                         "config_sha256": hashlib.sha256(config_path.read_bytes()).hexdigest(),
                                          "split_sha256": hashlib.sha256(SPLIT.read_bytes()).hexdigest(),
                                          "best_source_val_mean_macro_f1": best,
                                          "history": history}, indent=2), encoding="utf-8")

@@ -17,7 +17,7 @@ from tqdm import tqdm
 from shared.pacs import PACSImages, SOURCES
 from shared.pacs_protocol import load_split
 from task2.models import Classifier
-from task2.train import set_seed, validate
+from task2.train import set_seed, validate, validation_prediction_histogram
 from .methods import pairwise_source_mmd, sam_step
 
 BASE = Path(__file__).resolve().parent
@@ -56,13 +56,14 @@ def verify_erm(config):
         raise ValueError(f"Task 2 ERM checkpoint hash mismatch: {actual}")
 
 
-def train_one(name, root, config, split, workers, device):
+def train_one(name, root, config, split, workers, device, config_path=CONFIG,
+              checkpoints=CHECKPOINTS, results=RESULTS):
     specification = config["methods"][name]
-    CHECKPOINTS.mkdir(parents=True, exist_ok=True)
-    RESULTS.mkdir(parents=True, exist_ok=True)
-    checkpoint_path = CHECKPOINTS / f"{name}.pt"
-    record_path = RESULTS / f"{name}_train.json"
-    config_hash, split_hash = sha256(CONFIG), sha256(SPLIT)
+    checkpoints.mkdir(parents=True, exist_ok=True)
+    results.mkdir(parents=True, exist_ok=True)
+    checkpoint_path = checkpoints / f"{name}.pt"
+    record_path = results / f"{name}_train.json"
+    config_hash, split_hash = sha256(config_path), sha256(SPLIT)
     if checkpoint_path.exists() and record_path.exists():
         record = json.loads(record_path.read_text(encoding="utf-8"))
         if record.get("config_sha256") != config_hash or record.get("split_sha256") != split_hash:
@@ -113,9 +114,18 @@ def train_one(name, root, config, split, workers, device):
             logits, features = model(images)
             class_loss = F.cross_entropy(logits, labels)
             chunks = list(features.split(config["source_batch_per_domain"]))
-            penalty = pairwise_source_mmd(chunks)
+            penalty = pairwise_source_mmd(
+                chunks, specification.get("normalize_mmd_features", False))
             loss = class_loss + specification["mmd_weight"] * penalty
+            if not torch.isfinite(loss):
+                raise FloatingPointError(f"Non-finite loss in {name} at epoch {epoch + 1}")
             loss.backward()
+            clip_norm = specification.get("gradient_clip_norm")
+            if clip_norm is not None:
+                gradient_norm = torch.nn.utils.clip_grad_norm_(
+                    model.parameters(), clip_norm, error_if_nonfinite=True)
+                totals.setdefault("gradient_norm", 0.0)
+                totals["gradient_norm"] += float(gradient_norm.detach().cpu())
             optimizer.step()
             totals["classification_loss"] += class_loss.item()
             totals["mmd_penalty"] += penalty.item()
@@ -124,6 +134,9 @@ def train_one(name, root, config, split, workers, device):
         row = {"epoch": epoch + 1, "source_val_mean_macro_f1": score,
                "source_val": source_val,
                **{key: value / steps for key, value in totals.items()}}
+        if specification.get("record_prediction_histogram", False):
+            row["source_val_prediction_histogram"] = validation_prediction_histogram(
+                model, root, split, device, workers)
         history.append(row)
         print(f"{name} epoch {epoch + 1}: source val mean macro-F1={score:.4f}")
         if score > best + 1e-12:

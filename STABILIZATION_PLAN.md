@@ -22,12 +22,11 @@ Plan date: 2026-09-25
 Add the following logging without changing optimization:
 
 - total gradient norm before clipping;
-- maximum absolute gradient;
 - finite/non-finite loss and gradient checks;
 - prediction histogram on source validation;
 - classification and alignment loss separately;
 - for DANN/CDAN, discriminator accuracy;
-- for PROSER, known-only accuracy and dummy-win rate.
+- for PROSER, known-only validation accuracy and dummy-win rate.
 
 This stage is not a protocol deviation because it does not change training.
 
@@ -37,8 +36,8 @@ Use global gradient clipping with `max_norm = 5.0` immediately after `loss.backw
 
 Apply it only to the failed methods in the first pass:
 
-- Task 2: DAN λ=1, DAN λ=10, DANN, and CDAN.
-- Task 3: DAN-DG λ=1 and DAN-DG λ=10.
+- Task 2: DAN lambda=1, DANN, and CDAN.
+- Task 3: DAN-DG lambda=1.
 - Task 4: PROSER.
 
 Keep every other manual setting unchanged. Name these variants with `_clip5` and store them separately.
@@ -51,7 +50,7 @@ Run this stage only if clipping still produces collapse according to permitted v
 
 ### MMD methods in Tasks 2 and 3
 
-L2-normalize the 512-dimensional features before computing pairwise distances in MMD, while retaining the manual's three median-scaled kernels and prescribed λ values. Continue clipping at 5.0. Name these variants `_norm_clip5`.
+L2-normalize the 512-dimensional features before computing pairwise distances in MMD, while retaining the manual's three median-scaled kernels and prescribed lambda values. Continue clipping at 5.0. Name these variants `_norm_clip5`.
 
 Reason: normalization limits feature-scale-driven kernel gradients while retaining angular class/domain structure.
 
@@ -67,7 +66,7 @@ Deviation: the manual requests the shared optimizer recipe and does not specify 
 
 ### PROSER in Task 4
 
-If clipping alone still causes CIFAR-10 validation deterioration, use learning rate `1e-4` instead of `1e-3`, retain β=1, γ=0.1, five dummies, full-model fine-tuning, cosine decay, and 50 epochs. Name this variant `proser_clip5_lr1e4`.
+If clipping alone still causes CIFAR-10 validation deterioration, use learning rate `1e-4` instead of `1e-3`, retain beta=1, gamma=0.1, five dummies, full-model fine-tuning, cosine decay, and 50 epochs. Name this variant `proser_clip5_lr1e4`.
 
 Reason: the original selected epoch 1 and deteriorated substantially thereafter, indicating that the prescribed fine-tuning step size may be too aggressive for this implementation/model combination.
 
@@ -86,13 +85,13 @@ These are diagnostic safeguards, not new target-selection criteria.
 
 ## Recommended run order
 
-1. Task 2 DAN λ=1 `_clip5`.
-2. Task 3 DAN-DG λ=1 `_clip5` using the same clipping implementation.
+1. Task 2 DAN lambda=1 `_clip5`.
+2. Task 3 DAN-DG lambda=1 `_clip5` using the same clipping implementation.
 3. Task 2 DANN and CDAN `_clip5`.
 4. Task 4 PROSER `_clip5` only if compute time permits; its original selected checkpoint is already valid.
 5. Run Stage C only for methods that still collapse.
 
-Do not rerun healthy ERM, DAN/DAN-DG λ=0.1, SAM, Vanilla, or GCSC unless a fair supplemental table explicitly requires the same optimizer modification for every row.
+Do not rerun healthy ERM, DAN/DAN-DG lambda=0.1, SAM, Vanilla, or GCSC unless a fair supplemental table explicitly requires the same optimizer modification for every row.
 
 ## Reporting checklist for each supplemental variant
 

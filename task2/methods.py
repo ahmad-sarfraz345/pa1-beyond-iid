@@ -6,8 +6,12 @@ import torch
 from torch.nn import functional as F
 
 
-def mmd_loss(source: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
+def mmd_loss(source: torch.Tensor, target: torch.Tensor,
+             normalize_features: bool = False) -> torch.Tensor:
     """Biased empirical MMD² with three median-scaled Gaussian kernels."""
+    if normalize_features:
+        source = F.normalize(source, dim=1)
+        target = F.normalize(target, dim=1)
     both = torch.cat((source, target), dim=0)
     distances = torch.cdist(both, both).square()
     n, m = len(source), len(target)
