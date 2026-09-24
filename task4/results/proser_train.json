@@ -1,0 +1,458 @@
+{
+  "method": "proser",
+  "config_sha256": "f8bf259b74cfb9c0c937c03c2dbeb9d72484d57d32c09c3801edb28a8bc7a522",
+  "vanilla_checkpoint_sha256": "572934df5420772963dce9a2d7f502d8720960f91b8122a652516b716a135b54",
+  "best_validation_accuracy": 0.9438,
+  "history": [
+    {
+      "epoch": 1,
+      "validation_accuracy": 0.9438,
+      "learning_rate": 0.001,
+      "total": 0.5289522079242901,
+      "known": 0.09340334158894786,
+      "classifier_placeholder": 0.14424672542901879,
+      "data_placeholder": 2.9130213616246525
+    },
+    {
+      "epoch": 2,
+      "validation_accuracy": 0.943,
+      "learning_rate": 0.0009990133642141358,
+      "total": 0.3399728045121513,
+      "known": 0.10802650337361476,
+      "classifier_placeholder": 0.015409053141907365,
+      "data_placeholder": 2.165372435342182
+    },
+    {
+      "epoch": 3,
+      "validation_accuracy": 0.9434,
+      "learning_rate": 0.000996057350657239,
+      "total": 0.33041315733201126,
+      "known": 0.10775232600810175,
+      "classifier_placeholder": 0.012563567074142735,
+      "data_placeholder": 2.1009726145050744
+    },
+    {
+      "epoch": 4,
+      "validation_accuracy": 0.9428,
+      "learning_rate": 0.0009911436253643444,
+      "total": 0.3164174568162046,
+      "known": 0.10364189991642805,
+      "classifier_placeholder": 0.011159090674482286,
+      "data_placeholder": 2.0161646169356326
+    },
+    {
+      "epoch": 5,
+      "validation_accuracy": 0.943,
+      "learning_rate": 0.0009842915805643156,
+      "total": 0.3096910475922579,
+      "known": 0.10413441174155609,
+      "classifier_placeholder": 0.0110197495179653,
+      "data_placeholder": 1.9453688216480343
+    },
+    {
+      "epoch": 6,
+      "validation_accuracy": 0.9404,
+      "learning_rate": 0.0009755282581475769,
+      "total": 0.2969363136216998,
+      "known": 0.10107909032905643,
+      "classifier_placeholder": 0.01073431703182657,
+      "data_placeholder": 1.8512290360575372
+    },
+    {
+      "epoch": 7,
+      "validation_accuracy": 0.9428,
+      "learning_rate": 0.0009648882429441258,
+      "total": 0.2836653851395981,
+      "known": 0.09984349812888964,
+      "classifier_placeholder": 0.011375456199113449,
+      "data_placeholder": 1.7244642818854614
+    },
+    {
+      "epoch": 8,
+      "validation_accuracy": 0.9402,
+      "learning_rate": 0.0009524135262330099,
+      "total": 0.20982800832610915,
+      "known": 0.08374947220595046,
+      "classifier_placeholder": 0.013898520735727454,
+      "data_placeholder": 1.1218001378954134
+    },
+    {
+      "epoch": 9,
+      "validation_accuracy": 0.937,
+      "learning_rate": 0.0009381533400219318,
+      "total": 0.12203921072862366,
+      "known": 0.05349327188345011,
+      "classifier_placeholder": 0.017286309609930453,
+      "data_placeholder": 0.5125962838699872
+    },
+    {
+      "epoch": 10,
+      "validation_accuracy": 0.9348,
+      "learning_rate": 0.0009221639627510075,
+      "total": 0.10160650599705563,
+      "known": 0.04181604987984015,
+      "classifier_placeholder": 0.015887904129075734,
+      "data_placeholder": 0.4390255134150555
+    },
+    {
+      "epoch": 11,
+      "validation_accuracy": 0.936,
+      "learning_rate": 0.0009045084971874736,
+      "total": 0.21434844200054862,
+      "known": 0.07390501311535692,
+      "classifier_placeholder": 0.012317184256971814,
+      "data_placeholder": 1.2812624283410101
+    },
+    {
+      "epoch": 12,
+      "validation_accuracy": 0.9326,
+      "learning_rate": 0.0008852566213878945,
+      "total": 0.089072988178073,
+      "known": 0.03901651174369776,
+      "classifier_placeholder": 0.014003399700000458,
+      "data_placeholder": 0.360530760043978
+    },
+    {
+      "epoch": 13,
+      "validation_accuracy": 0.9142,
+      "learning_rate": 0.0008644843137107056,
+      "total": 0.06547961693616923,
+      "known": 0.03111143171025271,
+      "classifier_placeholder": 0.013969802937936038,
+      "data_placeholder": 0.20398381957784295
+    },
+    {
+      "epoch": 14,
+      "validation_accuracy": 0.9364,
+      "learning_rate": 0.0008422735529643443,
+      "total": 0.1232397740135308,
+      "known": 0.04289229533804411,
+      "classifier_placeholder": 0.012679331109128807,
+      "data_placeholder": 0.6766814681574363
+    },
+    {
+      "epoch": 15,
+      "validation_accuracy": 0.919,
+      "learning_rate": 0.0008187119948743448,
+      "total": 0.08485870172311975,
+      "known": 0.03697496946551837,
+      "classifier_placeholder": 0.012405602413557724,
+      "data_placeholder": 0.3547812961571088
+    },
+    {
+      "epoch": 16,
+      "validation_accuracy": 0.9164,
+      "learning_rate": 0.0007938926261462366,
+      "total": 0.06122452418573878,
+      "known": 0.029537144913443957,
+      "classifier_placeholder": 0.01260436272687829,
+      "data_placeholder": 0.19083016081607307
+    },
+    {
+      "epoch": 17,
+      "validation_accuracy": 0.8978,
+      "learning_rate": 0.0007679133974894982,
+      "total": 0.053220023117980665,
+      "known": 0.023504317986821247,
+      "classifier_placeholder": 0.011086790188776584,
+      "data_placeholder": 0.18628914611922068
+    },
+    {
+      "epoch": 18,
+      "validation_accuracy": 0.8894,
+      "learning_rate": 0.0007408768370508576,
+      "total": 0.05131805356623689,
+      "known": 0.022607587748842143,
+      "classifier_placeholder": 0.01061747839213984,
+      "data_placeholder": 0.18092987355141138
+    },
+    {
+      "epoch": 19,
+      "validation_accuracy": 0.8784,
+      "learning_rate": 0.0007128896457825362,
+      "total": 0.04726489328260703,
+      "known": 0.019405596535017885,
+      "classifier_placeholder": 0.009967051490093581,
+      "data_placeholder": 0.17892244818821465
+    },
+    {
+      "epoch": 20,
+      "validation_accuracy": 0.9184,
+      "learning_rate": 0.0006840622763423389,
+      "total": 0.045730070110452783,
+      "known": 0.020313412291050718,
+      "classifier_placeholder": 0.010128035383373075,
+      "data_placeholder": 0.15288622095249593
+    },
+    {
+      "epoch": 21,
+      "validation_accuracy": 0.9246,
+      "learning_rate": 0.0006545084971874735,
+      "total": 0.048961070884781126,
+      "known": 0.017493458463418807,
+      "classifier_placeholder": 0.008686813386950896,
+      "data_placeholder": 0.22780798516098663
+    },
+    {
+      "epoch": 22,
+      "validation_accuracy": 0.8864,
+      "learning_rate": 0.0006243449435824271,
+      "total": 0.045507311818338086,
+      "known": 0.018651995245653034,
+      "classifier_placeholder": 0.008667150255694816,
+      "data_placeholder": 0.18188166195018726
+    },
+    {
+      "epoch": 23,
+      "validation_accuracy": 0.8746,
+      "learning_rate": 0.0005936906572928622,
+      "total": 0.03949681855209002,
+      "known": 0.016216275257069025,
+      "classifier_placeholder": 0.008473238365364854,
+      "data_placeholder": 0.14807304622478445
+    },
+    {
+      "epoch": 24,
+      "validation_accuracy": 0.8996,
+      "learning_rate": 0.000562666616782152,
+      "total": 0.04019964997529645,
+      "known": 0.016453408281615175,
+      "classifier_placeholder": 0.008508732132296163,
+      "data_placeholder": 0.152375089189842
+    },
+    {
+      "epoch": 25,
+      "validation_accuracy": 0.9016,
+      "learning_rate": 0.0005313952597646566,
+      "total": 0.0378781835209917,
+      "known": 0.01668157690966671,
+      "classifier_placeholder": 0.007481813137102025,
+      "data_placeholder": 0.13714793676097708
+    },
+    {
+      "epoch": 26,
+      "validation_accuracy": 0.8502,
+      "learning_rate": 0.0004999999999999998,
+      "total": 0.03618460631431927,
+      "known": 0.014210834992065264,
+      "classifier_placeholder": 0.007662638261205178,
+      "data_placeholder": 0.14311132868698967
+    },
+    {
+      "epoch": 27,
+      "validation_accuracy": 0.8584,
+      "learning_rate": 0.00046860474023534314,
+      "total": 0.023499317120612515,
+      "known": 0.011597046015429607,
+      "classifier_placeholder": 0.006872308937917379,
+      "data_placeholder": 0.05029961926365187
+    },
+    {
+      "epoch": 28,
+      "validation_accuracy": 0.8882,
+      "learning_rate": 0.00043733338321784774,
+      "total": 0.032475565806221726,
+      "known": 0.013716609860156577,
+      "classifier_placeholder": 0.0075838956783462145,
+      "data_placeholder": 0.11175060047852722
+    },
+    {
+      "epoch": 29,
+      "validation_accuracy": 0.7894,
+      "learning_rate": 0.00040630934270713756,
+      "total": 0.026088047111195257,
+      "known": 0.011523346871068828,
+      "classifier_placeholder": 0.006706571273918433,
+      "data_placeholder": 0.07858128690383058
+    },
+    {
+      "epoch": 30,
+      "validation_accuracy": 0.791,
+      "learning_rate": 0.00037565505641757246,
+      "total": 0.026589439594483174,
+      "known": 0.011260773063854273,
+      "classifier_placeholder": 0.006689779500778637,
+      "data_placeholder": 0.08638887090703727
+    },
+    {
+      "epoch": 31,
+      "validation_accuracy": 0.883,
+      "learning_rate": 0.00034549150281252633,
+      "total": 0.03213378032325471,
+      "known": 0.01206349984501933,
+      "classifier_placeholder": 0.006581386512235357,
+      "data_placeholder": 0.13488893713458144
+    },
+    {
+      "epoch": 32,
+      "validation_accuracy": 0.8828,
+      "learning_rate": 0.00031593772365766105,
+      "total": 0.0249693647532364,
+      "known": 0.010273379208890467,
+      "classifier_placeholder": 0.006025100443697407,
+      "data_placeholder": 0.0867088495168983
+    },
+    {
+      "epoch": 33,
+      "validation_accuracy": 0.9072,
+      "learning_rate": 0.00028711035421746355,
+      "total": 0.021694240874653173,
+      "known": 0.010472083456988912,
+      "classifier_placeholder": 0.006249940875436137,
+      "data_placeholder": 0.04972216446714645
+    },
+    {
+      "epoch": 34,
+      "validation_accuracy": 0.8324,
+      "learning_rate": 0.0002591231629491422,
+      "total": 0.020531584226939067,
+      "known": 0.010050928228751714,
+      "classifier_placeholder": 0.006181163945505184,
+      "data_placeholder": 0.04299492117504335
+    },
+    {
+      "epoch": 35,
+      "validation_accuracy": 0.907,
+      "learning_rate": 0.00023208660251050145,
+      "total": 0.023331652899452656,
+      "known": 0.009596415553956334,
+      "classifier_placeholder": 0.0059085920319458555,
+      "data_placeholder": 0.07826645180466585
+    },
+    {
+      "epoch": 36,
+      "validation_accuracy": 0.8108,
+      "learning_rate": 0.00020610737385376337,
+      "total": 0.027111932239759797,
+      "known": 0.009549770954022692,
+      "classifier_placeholder": 0.005766590797231236,
+      "data_placeholder": 0.11795570316131819
+    },
+    {
+      "epoch": 37,
+      "validation_accuracy": 0.8972,
+      "learning_rate": 0.00018128800512565502,
+      "total": 0.02482272169304038,
+      "known": 0.009961676223610993,
+      "classifier_placeholder": 0.00584197964979632,
+      "data_placeholder": 0.09019065772008616
+    },
+    {
+      "epoch": 38,
+      "validation_accuracy": 0.8798,
+      "learning_rate": 0.00015772644703565555,
+      "total": 0.02724064253297084,
+      "known": 0.010248131990506821,
+      "classifier_placeholder": 0.005840397375074893,
+      "data_placeholder": 0.11152113045417619
+    },
+    {
+      "epoch": 39,
+      "validation_accuracy": 0.8162,
+      "learning_rate": 0.00013551568628929425,
+      "total": 0.019552780828565697,
+      "known": 0.009926086708384735,
+      "classifier_placeholder": 0.005475814107657326,
+      "data_placeholder": 0.04150880002998747
+    },
+    {
+      "epoch": 40,
+      "validation_accuracy": 0.8304,
+      "learning_rate": 0.00011474337861210535,
+      "total": 0.016183318407539362,
+      "known": 0.008826625104120467,
+      "classifier_placeholder": 0.0061160612961182114,
+      "data_placeholder": 0.012406319441982883
+    },
+    {
+      "epoch": 41,
+      "validation_accuracy": 0.8538,
+      "learning_rate": 9.549150281252626e-05,
+      "total": 0.018984804637677207,
+      "known": 0.0089554363929148,
+      "classifier_placeholder": 0.00563038493485444,
+      "data_placeholder": 0.04398983255007558
+    },
+    {
+      "epoch": 42,
+      "validation_accuracy": 0.8446,
+      "learning_rate": 7.783603724899252e-05,
+      "total": 0.018922166135532527,
+      "known": 0.008991486390269447,
+      "classifier_placeholder": 0.00568769991514273,
+      "data_placeholder": 0.042429797643721526
+    },
+    {
+      "epoch": 43,
+      "validation_accuracy": 0.7934,
+      "learning_rate": 6.184665997806817e-05,
+      "total": 0.01780725129356142,
+      "known": 0.008885245934917211,
+      "classifier_placeholder": 0.005852986459847836,
+      "data_placeholder": 0.03069018834767948
+    },
+    {
+      "epoch": 44,
+      "validation_accuracy": 0.813,
+      "learning_rate": 4.7586473766990294e-05,
+      "total": 0.017882011440550825,
+      "known": 0.00891524097360988,
+      "classifier_placeholder": 0.0057077170753142455,
+      "data_placeholder": 0.03259053344399118
+    },
+    {
+      "epoch": 45,
+      "validation_accuracy": 0.866,
+      "learning_rate": 3.5111757055874305e-05,
+      "total": 0.020173669327050447,
+      "known": 0.008646789651803292,
+      "classifier_placeholder": 0.0055052214434412735,
+      "data_placeholder": 0.060216580701473336
+    },
+    {
+      "epoch": 46,
+      "validation_accuracy": 0.8246,
+      "learning_rate": 2.4471741852423218e-05,
+      "total": 0.01894243180074475,
+      "known": 0.008486152200599794,
+      "classifier_placeholder": 0.005501086897063281,
+      "data_placeholder": 0.0495519275467483
+    },
+    {
+      "epoch": 47,
+      "validation_accuracy": 0.865,
+      "learning_rate": 1.5708419435684507e-05,
+      "total": 0.018848327647323127,
+      "known": 0.008769791164509528,
+      "classifier_placeholder": 0.005316009700684596,
+      "data_placeholder": 0.04762526664390779
+    },
+    {
+      "epoch": 48,
+      "validation_accuracy": 0.882,
+      "learning_rate": 8.856374635655634e-06,
+      "total": 0.015939510887785054,
+      "known": 0.008143776995976541,
+      "classifier_placeholder": 0.005317272935247853,
+      "data_placeholder": 0.024784610461210832
+    },
+    {
+      "epoch": 49,
+      "validation_accuracy": 0.821,
+      "learning_rate": 3.942649342761115e-06,
+      "total": 0.01763214893369216,
+      "known": 0.008254869118735025,
+      "classifier_placeholder": 0.005653300394690384,
+      "data_placeholder": 0.0372397937330375
+    },
+    {
+      "epoch": 50,
+      "validation_accuracy": 0.8262,
+      "learning_rate": 9.866357858642198e-07,
+      "total": 0.015977042383218013,
+      "known": 0.007852583595773798,
+      "classifier_placeholder": 0.005294727210474031,
+      "data_placeholder": 0.02829731477620292
+    }
+  ]
+}

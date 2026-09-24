@@ -1,0 +1,66 @@
+{
+  "cifar10_test_accuracy": {
+    "Vanilla": 0.9467,
+    "GCSC": 0.9535,
+    "PROSER": 0.9407
+  },
+  "threshold_policy": "95th percentile of CIFAR-10 validation unknownness",
+  "unknown_positive": true,
+  "metrics_rows": 21,
+  "failure_examples": [
+    {
+      "group": "near",
+      "cifar100_test_index": 4296,
+      "unknown_class": "bus",
+      "predicted_cifar10_class": "truck",
+      "mls_score": -11.33338451385498,
+      "threshold": -5.826396465301514,
+      "student_classification": "plausible"
+    },
+    {
+      "group": "near",
+      "cifar100_test_index": 6116,
+      "unknown_class": "bus",
+      "predicted_cifar10_class": "truck",
+      "mls_score": -11.27941608428955,
+      "threshold": -5.826396465301514,
+      "student_classification": "plausible"
+    },
+    {
+      "group": "near",
+      "cifar100_test_index": 8655,
+      "unknown_class": "bus",
+      "predicted_cifar10_class": "truck",
+      "mls_score": -11.127652168273926,
+      "threshold": -5.826396465301514,
+      "student_classification": "plausible"
+    },
+    {
+      "group": "far",
+      "cifar100_test_index": 6297,
+      "unknown_class": "keyboard",
+      "predicted_cifar10_class": "bird",
+      "mls_score": -13.33574390411377,
+      "threshold": -5.826396465301514,
+      "student_classification": "surprising"
+    },
+    {
+      "group": "far",
+      "cifar100_test_index": 5260,
+      "unknown_class": "sunflower",
+      "predicted_cifar10_class": "bird",
+      "mls_score": -12.013259887695312,
+      "threshold": -5.826396465301514,
+      "student_classification": "surprising"
+    },
+    {
+      "group": "far",
+      "cifar100_test_index": 8701,
+      "unknown_class": "mushroom",
+      "predicted_cifar10_class": "dog",
+      "mls_score": -11.469005584716797,
+      "threshold": -5.826396465301514,
+      "student_classification": "surprising"
+    }
+  ]
+}

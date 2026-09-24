@@ -9,6 +9,7 @@ checkpoints/
 task2/*artifacts.zip
 task3/*artifacts.zip
 task4/*artifacts.zip
+task4/results/*artifacts.zip
 task4/cache/
 task1/results/images/
 task1/results/features/

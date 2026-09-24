@@ -1,0 +1,7 @@
+group,cifar100_test_index,unknown_class,predicted_cifar10_class,mls_score,threshold,student_classification
+near,4296,bus,truck,-11.33338451385498,-5.826396465301514,plausible
+near,6116,bus,truck,-11.27941608428955,-5.826396465301514,plausible
+near,8655,bus,truck,-11.127652168273926,-5.826396465301514,plausible
+far,6297,keyboard,bird,-13.33574390411377,-5.826396465301514,surprising
+far,5260,sunflower,bird,-12.013259887695312,-5.826396465301514,surprising
+far,8701,mushroom,dog,-11.469005584716797,-5.826396465301514,surprising

@@ -17,6 +17,14 @@ def selected_indices(dataset, names):
 
 def save_failures(data_root, near_scores, far_scores, near_logits, far_logits, threshold,
                   cifar10_names, output_dir):
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_csv = output_dir / "vanilla_mls_failures.csv"
+    existing_labels = {}
+    if output_csv.exists():
+        with output_csv.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                existing_labels[(row["group"], int(row["cifar100_test_index"]))] = (
+                    row.get("student_classification", ""))
     dataset = CIFAR100(data_root, train=False, download=False)
     rows, images = [], []
     for group, names, scores, logits in (("near", NEAR_CLASSES, near_scores, near_logits),
@@ -34,10 +42,9 @@ def save_failures(data_root, near_scores, far_scores, near_logits, far_logits, t
                          "unknown_class": dataset.classes[target],
                          "predicted_cifar10_class": cifar10_names[int(logits[row_index].argmax())],
                          "mls_score": float(scores[row_index]), "threshold": threshold,
-                         "student_classification": ""})
+                         "student_classification": existing_labels.get((group, source_index), "")})
             images.append((image, rows[-1]))
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with (output_dir / "vanilla_mls_failures.csv").open("w", newline="", encoding="utf-8") as handle:
+    with output_csv.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=rows[0].keys())
         writer.writeheader()
         writer.writerows(rows)
