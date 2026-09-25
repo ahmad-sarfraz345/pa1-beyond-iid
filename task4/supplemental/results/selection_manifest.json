@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-09-24T23:20:01.805669+00:00",
+  "cifar100_loaded": false,
+  "frozen_variant": "proser_clip5",
+  "selected_epoch": 1,
+  "best_validation_accuracy": 0.9446,
+  "best_epoch_dummy_win_rate": 0.0802,
+  "final_validation_accuracy": 0.904,
+  "checkpoint_sha256": "f18deace71609d073dcb3495bfc910394509a8344511753e46fb29f9158c2490"
+}

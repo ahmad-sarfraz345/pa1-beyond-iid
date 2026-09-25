@@ -1,0 +1,201 @@
+{
+  "method": "dan_dg_clip5",
+  "configuration": {
+    "kind": "dan_dg",
+    "mmd_weight": 1.0,
+    "gradient_clip_norm": 5.0,
+    "normalize_mmd_features": false,
+    "record_prediction_histogram": true
+  },
+  "config_sha256": "a4c7c42c137b55ff6335cf50b57fb2b275fc92de4c00330874bc42e6a342da69",
+  "split_sha256": "a00d5fc8a02222363cf64a0392ca883ee903ac6186328af65e4e3e81b78d3b44",
+  "best_source_val_mean_macro_f1": 0.05066996495567924,
+  "history": [
+    {
+      "epoch": 1,
+      "source_val_mean_macro_f1": 0.05066996495567924,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "classification_loss": 1.9444217509411752,
+      "mmd_penalty": 0.43354893339441175,
+      "sam_perturbed_loss": 0.0,
+      "gradient_norm": 64.36637862388123,
+      "source_val_prediction_histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1213
+      ]
+    },
+    {
+      "epoch": 2,
+      "source_val_mean_macro_f1": 0.05066996495567924,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "classification_loss": 1.93844154591256,
+      "mmd_penalty": 0.3897545204200643,
+      "sam_perturbed_loss": 0.0,
+      "gradient_norm": 163.9299141579486,
+      "source_val_prediction_histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1213
+      ]
+    },
+    {
+      "epoch": 3,
+      "source_val_mean_macro_f1": 0.05066996495567924,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "classification_loss": 1.9310028857373176,
+      "mmd_penalty": 0.40474315152523366,
+      "sam_perturbed_loss": 0.0,
+      "gradient_norm": 134.17191167790838,
+      "source_val_prediction_histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1213
+      ]
+    },
+    {
+      "epoch": 4,
+      "source_val_mean_macro_f1": 0.05066996495567924,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "classification_loss": 1.9272297123645215,
+      "mmd_penalty": 0.41336118585251747,
+      "sam_perturbed_loss": 0.0,
+      "gradient_norm": 240.85923396171407,
+      "source_val_prediction_histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1213
+      ]
+    },
+    {
+      "epoch": 5,
+      "source_val_mean_macro_f1": 0.05066996495567924,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "classification_loss": 1.9192550380179223,
+      "mmd_penalty": 0.4032406021939947,
+      "sam_perturbed_loss": 0.0,
+      "gradient_norm": 187.68071894544235,
+      "source_val_prediction_histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1213
+      ]
+    },
+    {
+      "epoch": 6,
+      "source_val_mean_macro_f1": 0.05066996495567924,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.25748502994011974,
+          "macro_f1": 0.058503401360544216
+        },
+        "art_painting": {
+          "accuracy": 0.21951219512195122,
+          "macro_f1": 0.05142857142857143
+        },
+        "cartoon": {
+          "accuracy": 0.17270788912579957,
+          "macro_f1": 0.04207792207792208
+        }
+      },
+      "classification_loss": 1.9222289115824598,
+      "mmd_penalty": 0.4435184636648665,
+      "sam_perturbed_loss": 0.0,
+      "gradient_norm": 223.6672257768347,
+      "source_val_prediction_histogram": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1213
+      ]
+    }
+  ]
+}

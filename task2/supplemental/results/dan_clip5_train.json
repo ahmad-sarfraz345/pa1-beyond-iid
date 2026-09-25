@@ -1,0 +1,449 @@
+{
+  "method": "dan_clip5",
+  "configuration": {
+    "kind": "dan",
+    "mmd_weight": 1.0,
+    "gradient_clip_norm": 5.0,
+    "normalize_mmd_features": false,
+    "record_prediction_histogram": true
+  },
+  "config_sha256": "66fdb8aa44c75384d643faf5e70ed852124896e020604e2af7e6984fd2a371d9",
+  "split_sha256": "a00d5fc8a02222363cf64a0392ca883ee903ac6186328af65e4e3e81b78d3b44",
+  "best_source_val_mean_macro_f1": 0.9331032550323184,
+  "history": [
+    {
+      "epoch": 1,
+      "source_val_mean_macro_f1": 0.8637314095995503,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9401197604790419,
+          "macro_f1": 0.9283484403968273
+        },
+        "art_painting": {
+          "accuracy": 0.7878048780487805,
+          "macro_f1": 0.7879873739528689
+        },
+        "cartoon": {
+          "accuracy": 0.8763326226012793,
+          "macro_f1": 0.8748584144489551
+        }
+      },
+      "class_loss": 0.8561457710855819,
+      "alignment_loss": 0.1797977051836379,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 9.688006831230002,
+      "source_val_prediction_histogram": [
+        155,
+        168,
+        197,
+        82,
+        197,
+        187,
+        227
+      ]
+    },
+    {
+      "epoch": 2,
+      "source_val_mean_macro_f1": 0.9168903284231652,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9640718562874252,
+          "macro_f1": 0.9562138466405269
+        },
+        "art_painting": {
+          "accuracy": 0.8731707317073171,
+          "macro_f1": 0.8766411302890285
+        },
+        "cartoon": {
+          "accuracy": 0.9147121535181236,
+          "macro_f1": 0.9178160083399403
+        }
+      },
+      "class_loss": 0.265961658035187,
+      "alignment_loss": 0.1424921786531489,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 8.065213284593947,
+      "source_val_prediction_histogram": [
+        220,
+        186,
+        158,
+        102,
+        135,
+        172,
+        240
+      ]
+    },
+    {
+      "epoch": 3,
+      "source_val_mean_macro_f1": 0.915466589592182,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9520958083832335,
+          "macro_f1": 0.9438327097919512
+        },
+        "art_painting": {
+          "accuracy": 0.8707317073170732,
+          "macro_f1": 0.8700084500487384
+        },
+        "cartoon": {
+          "accuracy": 0.929637526652452,
+          "macro_f1": 0.9325586089358561
+        }
+      },
+      "class_loss": 0.16009764777536087,
+      "alignment_loss": 0.120289882700494,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 6.617255612637134,
+      "source_val_prediction_histogram": [
+        178,
+        206,
+        188,
+        100,
+        107,
+        167,
+        267
+      ]
+    },
+    {
+      "epoch": 4,
+      "source_val_mean_macro_f1": 0.9170620717726002,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9580838323353293,
+          "macro_f1": 0.9505817534420301
+        },
+        "art_painting": {
+          "accuracy": 0.8804878048780488,
+          "macro_f1": 0.8728017889651547
+        },
+        "cartoon": {
+          "accuracy": 0.9211087420042644,
+          "macro_f1": 0.9278026729106161
+        }
+      },
+      "class_loss": 0.12201615440401625,
+      "alignment_loss": 0.12075271302081168,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 5.758750727328849,
+      "source_val_prediction_histogram": [
+        180,
+        209,
+        152,
+        95,
+        140,
+        172,
+        265
+      ]
+    },
+    {
+      "epoch": 5,
+      "source_val_mean_macro_f1": 0.9174494414015154,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9640718562874252,
+          "macro_f1": 0.9579746574097344
+        },
+        "art_painting": {
+          "accuracy": 0.8585365853658536,
+          "macro_f1": 0.8569015575579968
+        },
+        "cartoon": {
+          "accuracy": 0.9424307036247335,
+          "macro_f1": 0.937472109236815
+        }
+      },
+      "class_loss": 0.10391002601765571,
+      "alignment_loss": 0.11876183063425916,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 5.457442205002967,
+      "source_val_prediction_histogram": [
+        192,
+        204,
+        158,
+        92,
+        152,
+        163,
+        252
+      ]
+    },
+    {
+      "epoch": 6,
+      "source_val_mean_macro_f1": 0.9146200329254262,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9580838323353293,
+          "macro_f1": 0.9526970894174115
+        },
+        "art_painting": {
+          "accuracy": 0.8536585365853658,
+          "macro_f1": 0.848565082419788
+        },
+        "cartoon": {
+          "accuracy": 0.9402985074626866,
+          "macro_f1": 0.9425979269390792
+        }
+      },
+      "class_loss": 0.07666977299179169,
+      "alignment_loss": 0.11826086044311523,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 4.42655902263966,
+      "source_val_prediction_histogram": [
+        231,
+        187,
+        185,
+        91,
+        113,
+        166,
+        240
+      ]
+    },
+    {
+      "epoch": 7,
+      "source_val_mean_macro_f1": 0.9138321297340838,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9610778443113772,
+          "macro_f1": 0.955341084794599
+        },
+        "art_painting": {
+          "accuracy": 0.8365853658536585,
+          "macro_f1": 0.8414961527288976
+        },
+        "cartoon": {
+          "accuracy": 0.9381663113006397,
+          "macro_f1": 0.9446591516787549
+        }
+      },
+      "class_loss": 0.07163938273219986,
+      "alignment_loss": 0.10975613289691032,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 4.353916713531981,
+      "source_val_prediction_histogram": [
+        160,
+        250,
+        156,
+        96,
+        144,
+        165,
+        242
+      ]
+    },
+    {
+      "epoch": 8,
+      "source_val_mean_macro_f1": 0.9264062567327315,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9580838323353293,
+          "macro_f1": 0.9505451192184248
+        },
+        "art_painting": {
+          "accuracy": 0.8829268292682927,
+          "macro_f1": 0.8792931258366445
+        },
+        "cartoon": {
+          "accuracy": 0.9445628997867804,
+          "macro_f1": 0.9493805251431249
+        }
+      },
+      "class_loss": 0.06833478869236213,
+      "alignment_loss": 0.11426068366842067,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 3.923300906445118,
+      "source_val_prediction_histogram": [
+        208,
+        166,
+        175,
+        111,
+        147,
+        172,
+        234
+      ]
+    },
+    {
+      "epoch": 9,
+      "source_val_mean_macro_f1": 0.9331032550323184,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9640718562874252,
+          "macro_f1": 0.9576300654620976
+        },
+        "art_painting": {
+          "accuracy": 0.8926829268292683,
+          "macro_f1": 0.8935318887549849
+        },
+        "cartoon": {
+          "accuracy": 0.9466950959488273,
+          "macro_f1": 0.9481478108798725
+        }
+      },
+      "class_loss": 0.0574132733284793,
+      "alignment_loss": 0.11221982671859417,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 3.5499719586778196,
+      "source_val_prediction_histogram": [
+        211,
+        191,
+        152,
+        96,
+        124,
+        176,
+        263
+      ]
+    },
+    {
+      "epoch": 10,
+      "source_val_mean_macro_f1": 0.9281677502755757,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9520958083832335,
+          "macro_f1": 0.9446542734963917
+        },
+        "art_painting": {
+          "accuracy": 0.8975609756097561,
+          "macro_f1": 0.8922959497090306
+        },
+        "cartoon": {
+          "accuracy": 0.9445628997867804,
+          "macro_f1": 0.9475530276213051
+        }
+      },
+      "class_loss": 0.04984114630583753,
+      "alignment_loss": 0.10737888660836727,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 3.3799690870528525,
+      "source_val_prediction_histogram": [
+        186,
+        194,
+        157,
+        89,
+        143,
+        182,
+        262
+      ]
+    },
+    {
+      "epoch": 11,
+      "source_val_mean_macro_f1": 0.9246235425424119,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9520958083832335,
+          "macro_f1": 0.9446618795190983
+        },
+        "art_painting": {
+          "accuracy": 0.8878048780487805,
+          "macro_f1": 0.8846388885935571
+        },
+        "cartoon": {
+          "accuracy": 0.9381663113006397,
+          "macro_f1": 0.9445698595145801
+        }
+      },
+      "class_loss": 0.05218898829151975,
+      "alignment_loss": 0.10969737134081252,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 3.4332093903358945,
+      "source_val_prediction_histogram": [
+        193,
+        205,
+        171,
+        98,
+        121,
+        171,
+        254
+      ]
+    },
+    {
+      "epoch": 12,
+      "source_val_mean_macro_f1": 0.9269187323941125,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9670658682634731,
+          "macro_f1": 0.9611183997844794
+        },
+        "art_painting": {
+          "accuracy": 0.8804878048780488,
+          "macro_f1": 0.8843582464091264
+        },
+        "cartoon": {
+          "accuracy": 0.9339019189765458,
+          "macro_f1": 0.9352795509887317
+        }
+      },
+      "class_loss": 0.05752101156939851,
+      "alignment_loss": 0.10590995321882532,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 3.9007387242418656,
+      "source_val_prediction_histogram": [
+        176,
+        185,
+        164,
+        107,
+        132,
+        168,
+        281
+      ]
+    },
+    {
+      "epoch": 13,
+      "source_val_mean_macro_f1": 0.9218741698598828,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9580838323353293,
+          "macro_f1": 0.9515564529438667
+        },
+        "art_painting": {
+          "accuracy": 0.8707317073170732,
+          "macro_f1": 0.8701611376689443
+        },
+        "cartoon": {
+          "accuracy": 0.9381663113006397,
+          "macro_f1": 0.9439049189668373
+        }
+      },
+      "class_loss": 0.04663065112334617,
+      "alignment_loss": 0.11026456000957083,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 3.020779710627617,
+      "source_val_prediction_histogram": [
+        187,
+        206,
+        166,
+        96,
+        130,
+        169,
+        259
+      ]
+    },
+    {
+      "epoch": 14,
+      "source_val_mean_macro_f1": 0.9202503838831703,
+      "source_val": {
+        "photo": {
+          "accuracy": 0.9401197604790419,
+          "macro_f1": 0.9327546172476281
+        },
+        "art_painting": {
+          "accuracy": 0.8878048780487805,
+          "macro_f1": 0.8848423209909805
+        },
+        "cartoon": {
+          "accuracy": 0.9381663113006397,
+          "macro_f1": 0.9431542134109021
+        }
+      },
+      "class_loss": 0.04730773134593,
+      "alignment_loss": 0.1060448463926924,
+      "domain_accuracy": 0.0,
+      "gradient_norm": 3.108251480853304,
+      "source_val_prediction_histogram": [
+        201,
+        191,
+        147,
+        88,
+        142,
+        172,
+        272
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-09-24T22:43:09.425970+00:00",
+  "sketch_loaded": false,
+  "baseline_source_val_macro_f1": 0.9333837743225187,
+  "collapse_rule": "finite metrics, largest class <= 0.90, source F1 within 0.05 of ERM",
+  "assessments": {
+    "dan_dg_clip5": {
+      "collapsed": true,
+      "reasons": [
+        "largest predicted-class fraction 1.0000 > 0.90",
+        "best source F1 0.0507 is more than 0.05 below baseline 0.9334"
+      ],
+      "best_epoch": 1,
+      "best_source_val_mean_macro_f1": 0.05066996495567924,
+      "largest_predicted_class_fraction": 1.0,
+      "finite_recorded_metrics": true
+    },
+    "dan_dg_norm_clip5": {
+      "collapsed": false,
+      "reasons": [],
+      "best_epoch": 3,
+      "best_source_val_mean_macro_f1": 0.9284495209162151,
+      "largest_predicted_class_fraction": 0.20939818631492169,
+      "finite_recorded_metrics": true
+    }
+  },
+  "frozen_variants": [
+    "dan_dg_clip5",
+    "dan_dg_norm_clip5"
+  ]
+}

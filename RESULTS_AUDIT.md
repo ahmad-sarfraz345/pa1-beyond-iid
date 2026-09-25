@@ -9,9 +9,19 @@ Audit date: 2026-09-25
 | Task | Artifact/protocol status | Training status | Action |
 |---|---|---|---|
 | 1 | Complete and internally consistent | Healthy | Keep results |
-| 2 | Complete; split/config hashes match | DAN 1/10 and DANN collapsed; CDAN became unstable after its selected epoch | Keep required results and disclose failures; use only clearly marked supplemental stabilization runs if time permits |
-| 3 | Complete; Task 2 ERM is reused byte-for-byte and Sketch isolation is recorded | DAN-DG 1/10 collapsed; DAN-DG 0.1 and SAM are healthy | Keep prescribed main result and disclose collapse; do not replace main λ=1 with post-hoc λ=0.1 |
-| 4 | Complete; dataset sizes, split, caches, thresholds, and metrics verify | Vanilla/GCSC healthy; PROSER deteriorated after epoch 1, but best-checkpoint selection protected the final model | Keep results; describe PROSER instability and the selected epoch |
+| 2 | Original and supplemental artifacts complete; hashes and target-isolation gates verify | Clipping recovers DAN lambda=1 and CDAN; DANN remains failed | Keep prescribed rows as primary and present successful/failed stabilization attempts as supplemental |
+| 3 | Original and supplemental artifacts complete; ERM reuse and Sketch isolation verify | Clipping alone fails; normalized-feature MMD plus clipping recovers DAN-DG lambda=1 | Keep prescribed lambda=1 failure as primary and label the recovered model supplemental |
+| 4 | Original and supplemental artifacts complete; checkpoint and validation-only selection verify | Clipping reduces late known-accuracy deterioration but does not prevent late dummy dominance or materially change the selected result | Keep the original result as primary; clipping is a supplemental stability diagnostic |
+
+## Supplemental run integrity and report readiness
+
+- `all_supplemental_artifacts.zip` contained 42 safe relative paths and was extracted into the corresponding `task2/`, `task3/`, `task4/`, and `supplemental_overnight/` directories.
+- All three tasks completed on a Tesla T4 using repository commit `98d45036b4ce85950cca612481a8159afd8fb9d4` between 22:03 and 23:20 UTC on 2026-09-24.
+- No traceback or non-finite metric was found in the records or logs.
+- Task 2 and Task 3 supplemental config hashes match the current configs. Their PACS split hash matches the original shared split.
+- All six supplemental checkpoint hashes match the hashes recorded during evaluation.
+- Selection manifests were written before target evaluation. Task 2 records `target_labels_opened: false`, Task 3 records `sketch_loaded: false`, and Task 4 records `cifar100_loaded: false` at selection time.
+- The work is ready for the report. Preserve the manual runs as the required results and put the stabilization experiments in a clearly labeled supplemental or ablation subsection. Do not present the remaining DANN, clipped DAN-DG, or late-PROSER failures as resolved.
 
 ## Task 1: Inductive biases and representations
 
@@ -60,14 +70,27 @@ No rerun is recommended. Preserve the review CSV and rejection counts as evidenc
 - Treat DAN λ=0.1 as a controlled-study result, not a replacement for the prescribed main λ=1 result.
 - For presentation, plot unstable losses on a log scale or in separate panels. This changes only visualization and does not deviate from the manual.
 
-### Supplemental stabilization options
+### Supplemental results
 
-Run these only as additional diagnostics while preserving the original required rows:
+All supplemental Task 2 methods used global gradient clipping with `max_norm=5.0`. The decision to run a fallback was based only on source validation. DAN passed the preregistered source gate, so normalized-feature DAN was not run.
 
-1. Log gradient norms, prediction histograms, and finite-value checks. Logging alone does not change the manual protocol.
-2. Apply global gradient clipping to backbone, classifier, and discriminator parameters. **Deviation:** gradient clipping is not specified in the manual.
-3. Ramp the alignment coefficient or GRL strength more slowly, or use a lower discriminator learning rate/separate discriminator optimizer. **Deviation:** these change the prescribed optimization schedule or shared optimizer settings.
-4. Use an MMD warm-up before reaching λ=1. **Deviation:** the main objective no longer uses constant λ=1 throughout training.
+| Method | Source macro-F1 | Sketch accuracy | Sketch macro-F1 | Change in accuracy from corresponding original |
+|---|---:|---:|---:|---:|
+| DAN lambda=1, original | 0.0877 | 0.0204 | 0.0057 | -- |
+| DAN lambda=1 + clip5 | 0.9331 | 0.6406 | 0.5982 | +0.6203 |
+| DANN, original | 0.1276 | 0.0402 | 0.0217 | -- |
+| DANN + clip5 | 0.5929 | 0.0593 | 0.0363 | +0.0191 |
+| CDAN, original | 0.9051 | 0.3489 | 0.4201 | -- |
+| CDAN + clip5 | 0.9313 | 0.6826 | 0.6277 | +0.3337 |
+
+- **DAN is recovered by clipping.** Its selected epoch is 9, the largest source-validation predicted-class fraction is 0.2168, and all recorded metrics are finite. It improves over source-only by 7.97 accuracy points on Sketch. It remains 4.66 points below the healthy manual DAN lambda=0.1 result in Sketch accuracy.
+- **CDAN is recovered by clipping.** Its selected epoch is 11, source macro-F1 remains near ERM, and Sketch accuracy rises to 0.6826. This is only 0.46 points below DAN lambda=0.1. Domain-probe accuracy remains high at 0.9753, so the gain does not require full domain confusion.
+- **DANN is not recovered.** Although clipping raises source macro-F1, it remains 34.05 points below ERM and Sketch predictions remain almost entirely `person`. Epoch-mean pre-clip gradient norm reaches 362,803, classification loss reaches 1,242, and alignment loss reaches 1,988. Clipping bounds the applied update but does not repair the unstable adversarial dynamics.
+- The successful DAN and CDAN results support gradient clipping as a useful stabilization step for this implementation. The failed DANN result shows that clipping alone is not a universal fix.
+
+### Remaining optional work
+
+No further rerun is required for report readiness. A lower or separate discriminator learning rate could be tested if additional time is available, but it would be another supplemental deviation and is unnecessary to document the observed DANN failure.
 
 Any stabilized run must be labeled supplemental and must not silently replace the required result.
 
@@ -96,11 +119,26 @@ Any stabilized run must be labeled supplemental and must not silently replace th
 - Use the one-class confusion matrix, source macro-F1, and class loss near log(7) as direct collapse evidence.
 - Do not claim that the collapsed λ=1/10 models are meaningfully flatter than SAM.
 
-### Supplemental stabilization options
+### Supplemental results
 
-- Gradient-norm logging is protocol-neutral.
-- Gradient clipping, MMD warm-up, normalized-feature MMD, or a smaller learning rate may stabilize λ=1. **All are deviations** from the fixed main recipe and must be reported only as supplemental variants.
-- Do not choose a stabilized variant using Sketch results. Selection must remain source-only.
+The first supplemental model added clipping at `max_norm=5.0`. It failed the source-only gate, so the preregistered fallback also L2-normalized the 512-dimensional features before MMD while retaining lambda=1 and clipping.
+
+| Method | Source macro-F1 | Sketch accuracy | Sketch macro-F1 | Source-domain separability | Sharpness increase |
+|---|---:|---:|---:|---:|---:|
+| DAN-DG lambda=1, original | 0.0507 | 0.0407 | 0.0112 | 0.5847 | 0.0103 |
+| DAN-DG lambda=1 + clip5 | 0.0507 | 0.0407 | 0.0112 | 0.5914 | 0.0088 |
+| DAN-DG lambda=1 + normalized MMD + clip5 | 0.9284 | 0.6261 | 0.6321 | 0.6611 | 46.9051 |
+
+- **Clipping alone does not help DAN-DG.** It selects epoch 1, predicts `person` for every source-validation and Sketch example, and reproduces the failed original accuracy.
+- **Normalized-feature MMD plus clipping recovers a discriminative model.** The selected epoch is 3, the largest source predicted-class fraction is 0.2094, source macro-F1 is within 0.50 points of ERM, and Sketch accuracy improves by 58.54 points over the original lambda=1 run and by 6.52 points over ERM.
+- The recovered model still trails the manual lambda=0.1 run by 8.48 Sketch accuracy points and trails SAM by 7.84 points. It is useful evidence about the failure mechanism, but it is not the best Task 3 model.
+- Feature normalization changes the MMD objective and must be disclosed. It likely prevents feature scale from dominating the distance kernels, but this is a mechanism hypothesis rather than a directly proven cause.
+- **Sharpness remains a serious caveat.** The recovered model's fixed-radius loss increase is 46.91, compared with 0.334 for ERM, 0.118 for DAN-DG lambda=0.1, and 0.112 for SAM. Do not describe it as flat or uniformly robust. Its source/Sketch classification is healthy, but it is highly sensitive under the assignment's one-step parameter perturbation diagnostic.
+- Epoch-mean pre-clip gradient norm reaches 395.65. The selected checkpoint is protected by source validation, but the final epoch's source macro-F1 falls to 0.6870; include the selected epoch rather than implying stable convergence through the last epoch.
+
+### Remaining optional work
+
+No further rerun is required for report readiness. The selection was source-only and the fallback succeeded according to its preregistered gate. A lower learning rate or MMD warm-up could be explored, but would add more post-hoc variants without being necessary for the assignment conclusions.
 
 ## Task 4: Open-set recognition
 
@@ -127,24 +165,52 @@ PROSER also fails to beat Vanilla in this run. The placeholder score improves ov
 - Do not tune using CIFAR-100 outcomes. Any stabilization must use CIFAR-10 training/validation only.
 - Early stopping would save computation but does not alter the already selected result. **Deviation:** ending before the prescribed 50 fine-tuning epochs would change the stated training procedure, so retain the completed run as the required result.
 
-### Supplemental stabilization options
+### Supplemental results
 
-- Add gradient and known/dummy prediction diagnostics without changing training.
-- Gradient clipping, a lower learning rate, freezing the backbone temporarily, or changing β/γ could improve stability. **Deviation:** each changes a manual-specified setting or the full-model fine-tuning procedure.
-- Preserve the required β=1, γ=0.1, learning rate 1e-3 result as the main row.
+The supplemental PROSER run retained all manual hyperparameters and 50 epochs, adding only global gradient clipping at `max_norm=5.0`. Its checkpoint was fixed using CIFAR-10 validation before CIFAR-100 was loaded.
+
+| Quantity | Original PROSER | PROSER + clip5 | Change |
+|---|---:|---:|---:|
+| Best validation accuracy | 0.9438 | 0.9446 | +0.0008 |
+| Final epoch validation accuracy | 0.8262 | 0.9040 | +0.0778 |
+| Selected CIFAR-10 test accuracy | 0.9407 | 0.9408 | +0.0001 |
+| MLS All AUROC | 0.8413 | 0.8414 | +0.0001 |
+| Placeholder All AUROC | 0.8497 | 0.8501 | +0.0003 |
+| Placeholder All unknown rejection | 0.4175 | 0.4181 | +0.0006 |
+
+- Clipping substantially improves the late known-class trajectory, raising epoch-50 validation accuracy from 82.62% to 90.40%.
+- It does not materially improve the selected checkpoint or OSR metrics. Both original and clipped runs select epoch 1, and changes in test accuracy, AUROC, and rejection are at most a few hundredths of a percentage point.
+- The best checkpoint's dummy-win rate on known validation images is 0.0802. Dummy wins rise sharply after epoch 8, exceed 0.81 at epoch 10, and become essentially 1.0 from epoch 22 onward. Thus, clipping does not prevent late placeholder dominance even though it reduces degradation of the known logits.
+- Recorded epoch-mean pre-clip gradient norms range from 1.12 to 4.68, below the clipping threshold on average. Some individual batches may still have been clipped, but the diagnostic explains why the selected epoch-1 model is almost unchanged.
+- Keep the original PROSER result as the main manual row. Use the clipped trajectory to show partial optimization stabilization, while stating that the late dummy-head pathology and inferior OSR performance relative to Vanilla remain.
+
+### Remaining optional work
+
+No further rerun is required for report readiness. A lower learning rate could target the remaining dummy dominance, but the selected checkpoint is already valid and the additional tuning would not be justified by the negligible change in final OSR performance observed here.
 
 ## Deviation ledger
 
-The following proposed fixes require explicit disclosure if run:
+| Change | Tasks | Run status | Why it is a deviation |
+|---|---|---|---|
+| Global gradient clipping, `max_norm=5.0` | 2, 3, 4 | Run | Not included in the fixed optimizer recipes |
+| L2-normalizing features before MMD | 3 | Run only after clipped DAN-DG failed its source gate | Changes the specified MMD inputs and objective |
+| Prediction histograms, finite checks, gradient-norm logging, and dummy-win logging | 2, 3, 4 | Run | Diagnostic only; does not change optimization |
+| Alignment/MMD warm-up | 2, 3 | Not run | Would change constant alignment pressure or the prescribed schedule |
+| Lower/separate discriminator learning rate | 2 | Not run | Would break the shared optimizer settings |
+| Lower PROSER learning rate or different beta/gamma | 4 | Not run | Would change manual-specified hyperparameters |
+| Temporarily freezing the PROSER backbone | 4 | Not run | Would conflict with full-model fine-tuning |
+| Stopping PROSER before 50 epochs | 4 | Not run | Would change the prescribed 50-epoch procedure |
 
-| Proposed change | Affected tasks | Why it is a deviation |
-|---|---|---|
-| Gradient clipping | 2, 3, 4 | Not included in the fixed optimizer recipe |
-| Alignment/MMD warm-up | 2, 3 | Changes constant alignment pressure or prescribed schedule |
-| Lower/separate discriminator learning rate | 2 | Breaks the shared optimizer settings |
-| Normalizing features before MMD | 2, 3 | Changes the specified MMD input and objective |
-| Lower PROSER learning rate or different β/γ | 4 | Manual fixes these values |
-| Temporarily freezing the PROSER backbone | 4 | Manual requires full-model fine-tuning |
-| Stopping PROSER before 50 epochs | 4 | Manual specifies 50 epochs, although best-checkpoint selection already protects evaluation |
+Pure logging, additional plots, log-scaled axes, and class-frequency summaries do not constitute experimental deviations. The two optimization changes that were actually run must be disclosed and labeled supplemental.
 
-Pure logging, additional plots, log-scaled axes, and class-frequency summaries do not change training and do not constitute experimental deviations.
+## Final report checklist
+
+- Present the original manual experiments first. Their failures are valid experimental outcomes.
+- State that the teaching assistant permitted clipping, normalization, and hyperparameter adjustments for convergence problems if deviations were documented.
+- Identify `max_norm=5.0`, its placement after backpropagation and before the optimizer step, and the methods to which it was applied.
+- For normalized DAN-DG, state that each 512-dimensional feature was L2-normalized before pairwise-distance MMD computation, while lambda=1 and the three median-scaled kernels were retained.
+- State that source validation alone triggered the Task 3 fallback; Task 2/3 Sketch labels and Task 4 CIFAR-100 were unavailable during supplemental model selection.
+- Report both successes and failures: DAN/CDAN recovered, DANN did not, DAN-DG needed normalization in addition to clipping, and PROSER gained late known-class stability without a material OSR gain.
+- Include selected epochs and avoid using final-epoch performance as the reported checkpoint performance.
+- Retain the sharpness warning for normalized DAN-DG and the late dummy-dominance warning for clipped PROSER.
+- Keep supplemental rows visually separate from the required manual tables and do not imply that they were part of the original prescribed protocol.

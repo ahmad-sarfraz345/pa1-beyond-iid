@@ -1,0 +1,84 @@
+{
+  "method": "PROSER clip5",
+  "cifar10_test_accuracy": 0.9408,
+  "configuration": {
+    "seed": 6304,
+    "method": "proser_clip5",
+    "epochs": 50,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "num_workers": 2,
+    "num_dummies": 5,
+    "beta": 1.0,
+    "gamma": 0.1,
+    "mixup_alpha": 2.0,
+    "placeholder_temperature": 1024.0,
+    "gradient_clip_norm": 5.0,
+    "vanilla_checkpoint_sha256": "572934df5420772963dce9a2d7f502d8720960f91b8122a652516b716a135b54",
+    "selection_rule": "CIFAR-10 validation accuracy only; CIFAR-100 remains unavailable until extraction."
+  },
+  "metrics": [
+    {
+      "method": "PROSER clip5",
+      "score": "MLS",
+      "unknown_group": "Near",
+      "threshold": -4.486236572265625,
+      "auroc": 0.8123498750000001,
+      "known_test_acceptance": 0.9471,
+      "unknown_rejection": 0.315,
+      "fpr_at_95_tpr": 0.685
+    },
+    {
+      "method": "PROSER clip5",
+      "score": "MLS",
+      "unknown_group": "Far",
+      "threshold": -4.486236572265625,
+      "auroc": 0.8703644375,
+      "known_test_acceptance": 0.9471,
+      "unknown_rejection": 0.455,
+      "fpr_at_95_tpr": 0.545
+    },
+    {
+      "method": "PROSER clip5",
+      "score": "MLS",
+      "unknown_group": "All",
+      "threshold": -4.486236572265625,
+      "auroc": 0.84135715625,
+      "known_test_acceptance": 0.9471,
+      "unknown_rejection": 0.385,
+      "fpr_at_95_tpr": 0.615
+    },
+    {
+      "method": "PROSER clip5",
+      "score": "Placeholder",
+      "unknown_group": "Near",
+      "threshold": 5.940570554230362e-05,
+      "auroc": 0.8075536875,
+      "known_test_acceptance": 0.949,
+      "unknown_rejection": 0.315,
+      "fpr_at_95_tpr": 0.685
+    },
+    {
+      "method": "PROSER clip5",
+      "score": "Placeholder",
+      "unknown_group": "Far",
+      "threshold": 5.940570554230362e-05,
+      "auroc": 0.892557625,
+      "known_test_acceptance": 0.949,
+      "unknown_rejection": 0.52125,
+      "fpr_at_95_tpr": 0.47875
+    },
+    {
+      "method": "PROSER clip5",
+      "score": "Placeholder",
+      "unknown_group": "All",
+      "threshold": 5.940570554230362e-05,
+      "auroc": 0.8500556562499999,
+      "known_test_acceptance": 0.949,
+      "unknown_rejection": 0.418125,
+      "fpr_at_95_tpr": 0.581875
+    }
+  ]
+}
