@@ -1,6 +1,6 @@
 # Task 2: PACS unsupervised adaptation to Sketch
 
-This directory implements the assignment's fixed Photo / Art Painting / Cartoon → Sketch protocol. It is code and an experiment plan, not PDF report text. Write the assignment report yourself.
+This directory implements the assignment's fixed Photo / Art Painting / Cartoon → Sketch protocol.
 
 ## Fixed protocol
 
@@ -18,10 +18,10 @@ Point `--data-root` to the `pacs/images/` directory containing `photo/`, `art_pa
 
 ## Kaggle GPU, from a fresh notebook
 
-1. Push these code changes to your Git repository. Create a Kaggle notebook, enable a GPU accelerator and internet in notebook settings. In separate code cells, replace `YOUR_REPO_URL` with your repository URL and run:
+1. Push these code changes to your Git repository. Create a Kaggle notebook, enable a GPU accelerator and internet in notebook settings. In separate code cells, run:
 
    ```python
-   !git clone YOUR_REPO_URL /kaggle/working/pa1-beyond-iid
+   !git clone https://github.com/ahmad-sarfraz345/pa1-beyond-iid.git /kaggle/working/pa1-beyond-iid
    %cd /kaggle/working/pa1-beyond-iid
    !python -m pip install -q -r requirements.txt
    !python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"

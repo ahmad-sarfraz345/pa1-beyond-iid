@@ -201,7 +201,7 @@ def evaluate_command(config, manifest, device):
                 model_result["representation_stability"][f"translation_{delta}"] = float(np.mean([
                     cosine_stability(features["clean"], features[f"translate_{delta}_{direction}"])
                     for direction in ("right", "left", "down", "up")]))
-            # Store per-image decisions so informative failures can be selected for the report.
+            # Store per-image decisions for later failure analysis.
             predictions = []
             for row, pred, confidence in zip(cue_rows, cue_p.argmax(1), cue_p.max(1)):
                 predictions.append({"id": row["id"], "content": row["content_class"],

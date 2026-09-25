@@ -11,7 +11,6 @@
 - Patch structure: one seeded non-identity 4 × 4 pixel-space patch permutation per image. Hypothesis: disrupting global organization will reduce accuracy and consistency while retaining local pixels. Metrics are accuracy change and paired prediction consistency.
 - Representation analysis: mean paired cosine similarity for grayscale, cue conflicts, 8/16/32-pixel translation, and patch shuffle. A t-SNE plot is fitted jointly to clean and transformed features for each backbone and intervention, with seed 6304, perplexity 30, PCA initialization, and automatic learning rate. The fixed visualization subset is the first 20 sorted test indices per class. Cue plots use 200 balanced accepted conflicts and their content counterparts. Compare neighborhood mixing within a plot, not coordinates across separately fitted plots.
 
-These hypotheses are **design records**, not report prose. The student must write the PDF report and interpretation independently.
 
 ## Setup and commands
 
@@ -41,7 +40,7 @@ python -m task1.scripts.run_task1 train
 python -m task1.scripts.run_task1 evaluate
 ```
 
-The outputs include `metrics.json`, `cue_review_counts.json`, `cue_comparison.csv`, per-model cue predictions, `translation.png`, and t-SNE plots. `metrics.json` contains clean top-1, macro-F1 and mean maximum confidence; transformed accuracy changes and paired consistency; direction-averaged translation curves; cue decision counts with shape bias and coverage; and cosine stability. Inspect `cue_comparison.csv` alongside the candidate sheets to choose informative agreements, disagreements, and failures for your own report.
+The outputs include `metrics.json`, `cue_review_counts.json`, `cue_comparison.csv`, per-model cue predictions, `translation.png`, and t-SNE plots. `metrics.json` contains clean top-1, macro-F1 and mean maximum confidence; transformed accuracy changes and paired consistency; direction-averaged translation curves; cue decision counts with shape bias and coverage; and cosine stability. Inspect `cue_comparison.csv` alongside the candidate sheets to identify informative agreements, disagreements, and failures.
 
 ## Kaggle or Colab GPU
 

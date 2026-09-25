@@ -4,7 +4,7 @@ This repository contains the Task 1--4 implementations, fixed experimental
 protocols, and machine-readable results for CS-6304 Advanced Topics in Machine
 Learning.
 
-See [Task 1 instructions](task1/README.md) for the experimental choices, commands, outputs, and cloud GPU workflow. Raw datasets, generated images, and large model checkpoints are excluded from Git. Small JSON/CSV result files and figures can be committed after an experiment.
+See [Task 1 instructions](task1/README.md) for the experimental choices, commands, outputs, and cloud GPU workflow. Raw datasets, generated intervention samples, and large model checkpoints are excluded from Git. Machine-readable results and compact summary figures are committed.
 
 See [Task 2 instructions](task2/README.md) for the PACS adaptation protocol and Kaggle GPU commands. Task 2's source-only checkpoint and source split must be retained for Task 3.
 

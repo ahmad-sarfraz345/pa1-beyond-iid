@@ -19,7 +19,6 @@ task2/supplemental/*artifacts.zip
 task3/supplemental/*artifacts.zip
 task4/supplemental/*artifacts.zip
 all_supplemental_artifacts.zip
-supplemental_overnight/logs/
 task1/results/images/
 task1/results/features/
 task1/results/heads/

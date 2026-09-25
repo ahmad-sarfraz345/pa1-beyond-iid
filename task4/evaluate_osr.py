@@ -70,7 +70,7 @@ def plot_distributions(vanilla_scores):
 
 
 def write_required_tables(rows, known_accuracies):
-    """Write the two report-ready evidence tables requested by the manual."""
+    """Write the score-comparison and trained-model comparison tables."""
     lookup = {(row["method"], row["score"], row["unknown_group"]): row for row in rows}
     vanilla_rows = []
     for score in ("MSP", "MLS", "Energy", "Mahalanobis"):

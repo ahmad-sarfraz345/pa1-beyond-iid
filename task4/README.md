@@ -1,6 +1,6 @@
 # Task 4: Open-Set Recognition on CIFAR
 
-This implementation follows the fixed Task 4 protocol. Training and model selection use only CIFAR-10. `train.py` cannot import or load CIFAR-100; unknown examples are first opened by `extract_outputs.py` after all checkpoints exist. Write the PDF discussion and plausible/surprising labels yourself.
+This implementation follows the fixed Task 4 protocol. Training and model selection use only CIFAR-10. `train.py` cannot import or load CIFAR-100; unknown examples are first opened by `extract_outputs.py` after all checkpoints exist.
 
 ## Implemented protocol
 
@@ -37,10 +37,10 @@ Task 4 does not need the PACS or Task 3 artifact dataset.
 
 ### 2. Clone the latest repository
 
-Run this in the first cell, replacing the URL:
+Run this in the first cell:
 
 ```python
-!git clone YOUR_REPO_URL /kaggle/working/pa1-beyond-iid
+!git clone https://github.com/ahmad-sarfraz345/pa1-beyond-iid.git /kaggle/working/pa1-beyond-iid
 %cd /kaggle/working/pa1-beyond-iid
 !git log -1 --oneline
 ```
@@ -139,7 +139,7 @@ display(Image.open("task4/results/vanilla_score_distributions.png"))
 display(Image.open("task4/results/vanilla_mls_failures.png"))
 ```
 
-Open `task4/results/vanilla_mls_failures.csv` and fill its `student_classification` column with your own plausible/surprising judgment before using it in your report. The assignment requires your own analysis.
+The committed `task4/results/vanilla_mls_failures.csv` records the plausible/surprising classifications used in the failure analysis.
 
 ### 10. Save everything before the Kaggle session ends
 

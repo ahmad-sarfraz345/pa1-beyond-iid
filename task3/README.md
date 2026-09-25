@@ -1,6 +1,6 @@
 # Task 3: Domain Generalization on PACS
 
-Task 3 reuses the exact Task 2 protocol and ERM checkpoint. Photo, Art Painting, and Cartoon are the only domains available to training, source diagnostics, checkpoint selection, and study design. Sketch is opened only by `evaluate_sketch.py` after every checkpoint and source diagnostic is fixed. This file records the experiment design and commands; write the PDF report yourself.
+Task 3 reuses the exact Task 2 protocol and ERM checkpoint. Photo, Art Painting, and Cartoon are the only domains available to training, source diagnostics, checkpoint selection, and study design. Sketch is opened only by `evaluate_sketch.py` after every checkpoint and source diagnostic is fixed. This file records the experiment design and commands.
 
 ## Fixed design
 
@@ -19,7 +19,7 @@ Task 3 reuses the exact Task 2 protocol and ERM checkpoint. Photo, Art Painting,
 Create a Kaggle notebook, attach the same PACS dataset, enable a GPU and Internet, and run:
 
 ```python
-!git clone YOUR_REPO_URL /kaggle/working/pa1-beyond-iid
+!git clone https://github.com/ahmad-sarfraz345/pa1-beyond-iid.git /kaggle/working/pa1-beyond-iid
 %cd /kaggle/working/pa1-beyond-iid
 !python -m pip install -q -r requirements.txt
 !python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
