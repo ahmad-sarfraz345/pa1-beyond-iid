@@ -26,3 +26,23 @@ task1/results/heads/
 task1/results/cue_candidates/
 task1/results/cue_review_*.jpg
 task1/results/variants/
+
+# Local reference and drafting material (kept outside the submitted repository)
+.local/
+
+# Local report source, PDF, style, and Overleaf bundle
+styling/
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Notebook/editor caches
+.ipynb_checkpoints/

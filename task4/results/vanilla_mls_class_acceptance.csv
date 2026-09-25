@@ -1,0 +1,17 @@
+group,unknown_class,cifar100_label,count,accepted_as_known,acceptance_rate,most_common_known_prediction,prediction_count_among_accepted,mls_threshold
+near,pickup_truck,58,100,91,0.91,automobile,67,-5.826396226882935
+near,bus,13,100,84,0.84,truck,68,-5.826396226882935
+near,wolf,97,100,73,0.73,dog,34,-5.826396226882935
+near,leopard,42,100,65,0.65,cat,33,-5.826396226882935
+near,fox,34,100,65,0.65,cat,26,-5.826396226882935
+near,camel,15,100,55,0.55,horse,16,-5.826396226882935
+near,tractor,89,100,50,0.5,truck,44,-5.826396226882935
+near,motorcycle,48,100,32,0.32,automobile,18,-5.826396226882935
+far,wardrobe,94,100,61,0.61,truck,35,-5.826396226882935
+far,mushroom,51,100,51,0.51,bird,25,-5.826396226882935
+far,bowl,10,100,48,0.48,cat,16,-5.826396226882935
+far,sunflower,82,100,46,0.46,bird,23,-5.826396226882935
+far,chair,20,100,39,0.39,airplane,25,-5.826396226882935
+far,clock,22,100,34,0.34,automobile,9,-5.826396226882935
+far,keyboard,39,100,30,0.3,airplane,10,-5.826396226882935
+far,bottle,9,100,29,0.29,ship,9,-5.826396226882935

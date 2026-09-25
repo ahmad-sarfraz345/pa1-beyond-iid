@@ -1,6 +1,8 @@
 # ATML Programming Assignment 1
 
-This repository contains the assignment manual and the Task 1–4 implementations.
+This repository contains the Task 1--4 implementations, fixed experimental
+protocols, and machine-readable results for CS-6304 Advanced Topics in Machine
+Learning.
 
 See [Task 1 instructions](task1/README.md) for the experimental choices, commands, outputs, and cloud GPU workflow. Raw datasets, generated images, and large model checkpoints are excluded from Git. Small JSON/CSV result files and figures can be committed after an experiment.
 
@@ -10,9 +12,9 @@ See [Task 3 instructions](task3/README.md) for the target-free PACS domain-gener
 
 See [Task 4 instructions](task4/README.md) for the CIFAR open-set-recognition protocol and a complete fresh-session Kaggle workflow.
 
-See [Supplemental stabilization plan](STABILIZATION_PLAN.md) for the preregistered clipping and normalized-feature fallbacks, and [Supplemental Kaggle guide](SUPPLEMENTAL_KAGGLE.md) for the complete rerun workflow.
-
-The course permits LLM coding assistance but requires the student to understand all submitted code. **The PDF report must be written entirely by the student without generative AI.**
+The supplemental implementations, configurations, and results are stored inside
+the corresponding `task2/`, `task3/`, and `task4/` directories. All reported
+numerical results come from the machine-readable files in this repository.
 
 ## External implementation attribution
 
